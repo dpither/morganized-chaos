@@ -51,9 +51,10 @@ func update_caret(index: int):
 	if current_line != line:
 		current_line = line
 		var offset = prompt.get_line_offset(line)
-		caret.position = prompt.position + Vector2(0,offset)
+		caret.position = prompt.position + Vector2(-1,offset)
 	else:
 		var width = font.get_string_size(text[index],0,-1,font_size).x
+		print(font.get_string_size(text[index],0,-1,font_size))
 		caret.position.x += width
 	caret.visible = true
 	blink_timer.start()
@@ -77,8 +78,8 @@ func display_time():
 func task_start():
 	game_over_screen.hide()
 	caret.show()
-	caret.size = Vector2(2,font.get_height(font_size))
-	caret.position = prompt.position
+	caret.size = Vector2(1,font.get_height(font_size))
+	caret.position = prompt.position + Vector2(-1,0)
 	current_letter_index = 0
 	current_line = 0
 	elapsed_time = 0

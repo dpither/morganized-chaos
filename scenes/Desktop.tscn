@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcudccp2o1nrt"]
+
+[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://theme.tres" id="1_fsv5x"]
+[ext_resource type="Script" uid="uid://c55jk0rb6hixe" path="res://scripts/window_manager.gd" id="2_eysme"]
+[ext_resource type="Texture2D" uid="uid://7gkr2p2va016" path="res://assets/ui/morganized-chaos-ui-sheet.png" id="2_h488k"]
+[ext_resource type="Script" uid="uid://cwin6mnchq4ry" path="res://scenes/task_bar.gd" id="3_a1iwr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eysme"]
+atlas = ExtResource("2_h488k")
+region = Rect2(40, 136, 16, 16)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fsv5x")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="WindowManager" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("taskbar")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_eysme")
+taskbar = NodePath("../TaskBar")
+
+[node name="TaskBar" type="PanelContainer" parent="VBoxContainer" node_paths=PackedStringArray("app_contanier")]
+layout_mode = 2
+theme = ExtResource("1_fsv5x")
+theme_type_variation = &"WindowFrame"
+script = ExtResource("3_a1iwr")
+app_contanier = NodePath("MarginContainer/HBoxContainer/AppContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TaskBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TaskBar/MarginContainer"]
+layout_mode = 2
+
+[node name="AppContainer" type="HBoxContainer" parent="VBoxContainer/TaskBar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PLACEHOLDER" type="Button" parent="VBoxContainer/TaskBar/MarginContainer/HBoxContainer/AppContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_fsv5x")
+theme_type_variation = &"LabelButton"
+icon = SubResource("AtlasTexture_eysme")
+
+[node name="Spacer" type="Control" parent="VBoxContainer/TaskBar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ClockBackground" type="PanelContainer" parent="VBoxContainer/TaskBar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_fsv5x")
+theme_type_variation = &"WindowInset"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TaskBar/MarginContainer/HBoxContainer/ClockBackground"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="ClockContainer" type="HBoxContainer" parent="VBoxContainer/TaskBar/MarginContainer/HBoxContainer/ClockBackground/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_fsv5x")
+
+[node name="Date" type="Label" parent="VBoxContainer/TaskBar/MarginContainer/HBoxContainer/ClockBackground/MarginContainer/ClockContainer"]
+layout_mode = 2
+theme = ExtResource("1_fsv5x")
+text = "2025-09-01"
+horizontal_alignment = 1
+
+[node name="Time" type="Label" parent="VBoxContainer/TaskBar/MarginContainer/HBoxContainer/ClockBackground/MarginContainer/ClockContainer"]
+layout_mode = 2
+theme = ExtResource("1_fsv5x")
+text = "1:00 AM"
+horizontal_alignment = 1
+vertical_alignment = 1

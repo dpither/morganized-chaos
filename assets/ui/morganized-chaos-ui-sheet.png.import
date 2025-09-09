@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca2mwc0wnrwc5"
-path="res://.godot/imported/morganized-chaos-buttons.png-62157a8437a343651a627e9a75f14d00.ctex"
+uid="uid://7gkr2p2va016"
+path="res://.godot/imported/morganized-chaos-ui-sheet.png-fa89061f1c4026c40e128b014199fdfa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/morganized-chaos-buttons.png"
-dest_files=["res://.godot/imported/morganized-chaos-buttons.png-62157a8437a343651a627e9a75f14d00.ctex"]
+source_file="res://assets/ui/morganized-chaos-ui-sheet.png"
+dest_files=["res://.godot/imported/morganized-chaos-ui-sheet.png-fa89061f1c4026c40e128b014199fdfa.ctex"]
 
 [params]
 
