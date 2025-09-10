@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var prompt: RichTextLabel = $Prompt
+@export var prompt: RichTextLabel
 @onready var caret: ColorRect = $Caret
 @onready var blink_timer: Timer = $CaretBlinkTimer
 @onready var game_timer: Timer = $GameTimer

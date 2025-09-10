@@ -4,14 +4,14 @@ class_name WindowManager
 @export var taskbar: TaskBar
 
 var app_windows: Array[AppWindow] = []
-var test = preload("res://scenes/AppWindow.tscn")
+var app_scene = preload("res://scenes/AppWindow.tscn")
 
 func _ready():
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
-	spawn_app_window(test, "test1")
-	spawn_app_window(test, "test2")
+	spawn_app_window("test")
+	spawn_app_window("test2")
 
-func spawn_app_window(app_scene: PackedScene, title: String) -> AppWindow:
+func spawn_app_window(title: String) -> AppWindow:
 	var app_window:AppWindow = app_scene.instantiate()
 	app_window.set_title(title)
 	add_child(app_window)

@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://theme.tres" id="1_fsv5x"]
 [ext_resource type="Script" uid="uid://c55jk0rb6hixe" path="res://scripts/window_manager.gd" id="2_eysme"]
 [ext_resource type="Texture2D" uid="uid://7gkr2p2va016" path="res://assets/ui/morganized-chaos-ui-sheet.png" id="2_h488k"]
-[ext_resource type="Script" uid="uid://cwin6mnchq4ry" path="res://scenes/task_bar.gd" id="3_a1iwr"]
+[ext_resource type="Script" uid="uid://cwin6mnchq4ry" path="res://scripts/task_bar.gd" id="3_a1iwr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eysme"]
 atlas = ExtResource("2_h488k")

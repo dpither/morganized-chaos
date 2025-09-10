@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://to3y1jnu3cyi"]
+[gd_scene load_steps=9 format=3 uid="uid://to3y1jnu3cyi"]
 
 [ext_resource type="Script" uid="uid://s6j0r6t43hdn" path="res://scripts/app_window.gd" id="1_gnkym"]
 [ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://theme.tres" id="2_tbaxk"]
 [ext_resource type="Texture2D" uid="uid://7gkr2p2va016" path="res://assets/ui/morganized-chaos-ui-sheet.png" id="3_ivrsd"]
+[ext_resource type="PackedScene" uid="uid://5t0yvgxwcpbo" path="res://scenes/TaskSelector.tscn" id="4_tbaxk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wdeh2"]
 atlas = ExtResource("3_ivrsd")
@@ -105,6 +106,9 @@ theme = ExtResource("2_tbaxk")
 theme_type_variation = &"IconButton"
 icon = SubResource("AtlasTexture_tpxq1")
 
-[node name="Content" type="BoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Content" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="TaskSelector" parent="MarginContainer/VBoxContainer/Content" instance=ExtResource("4_tbaxk")]
+layout_mode = 1

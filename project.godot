@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Morganized Chaos"
-run/main_scene="uid://bcj4pjjs33pnj"
+run/main_scene="uid://dcudccp2o1nrt"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameState="*res://scripts/game_state.gd"
 
 [display]
 
