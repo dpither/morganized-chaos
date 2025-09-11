@@ -79,7 +79,7 @@ func task_start():
 	game_over_screen.hide()
 	caret.show()
 	caret.size = Vector2(1,font.get_height(font_size))
-	caret.position = prompt.position + Vector2(-1,0)
+	caret.position = prompt.position + Vector2(0,0)
 	current_letter_index = 0
 	current_line = 0
 	elapsed_time = 0
@@ -95,6 +95,7 @@ func task_complete():
 	caret.hide()
 
 func _on_restart_button_pressed() -> void:
+	print("restart")
 	task_start()
 
 func _on_caret_blink_timer_timeout() -> void:

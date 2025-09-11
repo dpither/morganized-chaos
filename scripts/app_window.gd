@@ -3,7 +3,7 @@ class_name AppWindow
 
 signal request_close(window: AppWindow)
 signal request_minimize(window: AppWindow)
-signal request_restore(window: AppWindow)
+#signal request_restore(window: AppWindow)
 signal request_focus(window: AppWindow)
 
 @export var close_button: Button
@@ -12,7 +12,10 @@ signal request_focus(window: AppWindow)
 @export var title_bar: PanelContainer
 @export var icon: TextureRect
 @export var title: Label
-@export var content: Node2D
+@export var content_root: Control
+@export var content: Control
+
+var can_close = true
 
 var dragging := false
 var drag_offset := Vector2.ZERO
@@ -22,14 +25,17 @@ var prev_position := Vector2.ZERO
 var prev_size := Vector2.ZERO
 
 func _ready():
+	if content:
+		content_root.add_child(content)
 	title_bar.gui_input.connect(_on_title_bar_pressed)
 	minimize_button.pressed.connect(_on_minimize_pressed)
 	maximize_button.pressed.connect(_on_maximize_pressed)
 	close_button.pressed.connect(_on_close_pressed)
 
-func _gui_input(event: InputEvent):
+func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		emit_signal("request_focus", self)
+		if event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_RIGHT:
+			emit_signal("request_focus", self)
 
 func _on_title_bar_pressed(event: InputEvent):
 	if event is InputEventMouseButton:
@@ -37,7 +43,6 @@ func _on_title_bar_pressed(event: InputEvent):
 			if event.pressed:
 				dragging = true
 				drag_offset = get_global_mouse_position() - global_position
-				emit_signal("request_focus", self)
 			else:
 				dragging = false
 	elif event is InputEventMouseMotion and dragging:
@@ -51,12 +56,12 @@ func toggle_maximize():
 		prev_size = size
 		global_position = Vector2.ZERO
 		size = get_parent_area_size()
-		maximize_button.icon = get_theme_icon("window_restore_down", "IconButton")
+		maximize_button.icon = get_theme_icon("window_restore_down", "TitleBarButton")
 		is_maximized = true
 	else:
 		global_position = prev_position
 		size = prev_size 
-		maximize_button.icon = get_theme_icon("window_maximize", "IconButton")
+		maximize_button.icon = get_theme_icon("window_maximize", "TitleBarButton")
 		is_maximized = false
 
 func minimize():
@@ -65,7 +70,7 @@ func minimize():
 
 func restore():
 	show()
-	emit_signal("request_restore", self)
+	#emit_signal("request_restore", self)
 	emit_signal("request_focus", self)
 
 #TODO: Maybe remove this since app windows will be built by me and then instantiated by name perhaps
@@ -77,12 +82,18 @@ func set_icon(new_icon: Texture2D):
 
 func set_focus(is_focused: bool):
 	if is_focused:
-		title.set("theme_override_colors/font_color", get_theme_color("font_color", "TitleBar"))
+		title_bar.remove_theme_stylebox_override("panel")
+		title.remove_theme_color_override("font_color")
 	else:
-		title.set("theme_override_colors/font_color", get_theme_color("font_disabled_color", "TitleBar"))
+		title_bar.add_theme_stylebox_override("panel", get_theme_stylebox("unfocused", "TitleBar"))
+		title.add_theme_color_override("font_color", get_theme_color("font_unfocused", "TitleBar"))
 
 func _on_close_pressed():
-	emit_signal("request_close", self)
+	hide()
+	if can_close:
+		emit_signal("request_close", self)
+	else:
+		emit_signal("request_minimize", self)
 
 func _on_maximize_pressed():
 	emit_signal("request_focus", self)

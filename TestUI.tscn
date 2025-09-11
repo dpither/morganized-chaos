@@ -5,15 +5,15 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p666j"]
 atlas = ExtResource("1_af6lf")
-region = Rect2(76, 44, 8, 8)
+region = Rect2(75, 43, 9, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_86jgl"]
 atlas = ExtResource("1_af6lf")
-region = Rect2(44, 44, 8, 8)
+region = Rect2(43, 43, 9, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hd0qv"]
 atlas = ExtResource("1_af6lf")
-region = Rect2(12, 44, 8, 8)
+region = Rect2(11, 43, 9, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqlvv"]
 atlas = ExtResource("1_af6lf")
@@ -21,7 +21,7 @@ region = Rect2(8, 136, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bfufk"]
 atlas = ExtResource("1_af6lf")
-region = Rect2(9, 137, 14, 14)
+region = Rect2(8, 136, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jmf0u"]
 atlas = ExtResource("1_af6lf")
@@ -58,9 +58,11 @@ theme_override_constants/separation = 8
 
 [node name="Minimize" type="Button" parent="MarginContainer/VBoxContainer/Row1"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 focus_mode = 0
 theme = ExtResource("1_p666j")
-theme_type_variation = &"IconButton"
+theme_type_variation = &"TitleBarButton"
 disabled = true
 icon = SubResource("AtlasTexture_p666j")
 
@@ -68,14 +70,14 @@ icon = SubResource("AtlasTexture_p666j")
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_p666j")
-theme_type_variation = &"IconButton"
+theme_type_variation = &"TitleBarButton"
 icon = SubResource("AtlasTexture_86jgl")
 
 [node name="Close" type="Button" parent="MarginContainer/VBoxContainer/Row1"]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_p666j")
-theme_type_variation = &"IconButton"
+theme_type_variation = &"TitleBarButton"
 icon = SubResource("AtlasTexture_hd0qv")
 
 [node name="Row2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -114,13 +116,13 @@ theme_override_constants/separation = 8
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_type_variation = &"LabelButton"
+theme_type_variation = &"TaskBarButton"
 toggle_mode = true
 icon = SubResource("AtlasTexture_mqlvv")
 
 [node name="ButtonTextCustomIcon" type="Button" parent="MarginContainer/VBoxContainer/Row3"]
 layout_mode = 2
-theme_type_variation = &"LabelButton"
+theme_type_variation = &"TaskBarButton"
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
@@ -128,13 +130,14 @@ theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
 toggle_mode = true
-text = "Lj"
+text = "Computer"
 icon = SubResource("AtlasTexture_mqlvv")
 
 [node name="ButtonTextCustomIcon2" type="Button" parent="MarginContainer/VBoxContainer/Row3"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
-theme_type_variation = &"LabelButton"
+theme_type_variation = &"TaskBarButton"
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
@@ -149,7 +152,7 @@ text = "To-Do List"
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_type_variation = &"LabelButton"
+theme_type_variation = &"TaskBarButton"
 text = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz!1@2#3$4%5^6&7*8(9)0
 "
 icon = SubResource("AtlasTexture_bfufk")
