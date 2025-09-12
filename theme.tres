@@ -1,10 +1,11 @@
-[gd_resource type="Theme" load_steps=62 format=3 uid="uid://6qhtgfqfkf5l"]
+[gd_resource type="Theme" load_steps=69 format=3 uid="uid://6qhtgfqfkf5l"]
 
 [ext_resource type="Texture2D" uid="uid://7gkr2p2va016" path="res://assets/ui/morganized-chaos-ui-sheet.png" id="2_cjfk0"]
 [ext_resource type="FontFile" uid="uid://de7bpgdsslej1" path="res://assets/ui/fonts/PixelOperator.ttf" id="2_vj6dk"]
 [ext_resource type="Texture2D" uid="uid://oa7e0hlhxdu7" path="res://assets/ui/morganized-chaos-ui-frames.png" id="3_05tig"]
 [ext_resource type="FontFile" uid="uid://d4if4akjtlgak" path="res://assets/ui/fonts/PixelOperator-Bold.ttf" id="3_110ce"]
 [ext_resource type="Texture2D" uid="uid://c1p7bx7j4sbef" path="res://assets/ui/morganized-chaos-ui-buttons.png" id="3_vj6dk"]
+[ext_resource type="FontFile" uid="uid://dsop3o4xmw07n" path="res://assets/ui/fonts/PixelOperatorMono.ttf" id="6_1rmny"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t3v2v"]
 content_margin_left = 4.0
@@ -26,11 +27,11 @@ spacing_top = -1
 spacing_bottom = 1
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hillf"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-texture = ExtResource("2_cjfk0")
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+texture = ExtResource("3_vj6dk")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
@@ -42,27 +43,23 @@ region_rect = Rect2(4, 4, 24, 24)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vj6dk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6rgb0"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-texture = ExtResource("2_cjfk0")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+texture = ExtResource("3_vj6dk")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(36, 4, 24, 24)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_110ce"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-texture = ExtResource("2_cjfk0")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mworl"]
+texture = ExtResource("3_vj6dk")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
 texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 axis_stretch_horizontal = 1
@@ -70,11 +67,11 @@ axis_stretch_vertical = 1
 region_rect = Rect2(100, 4, 24, 24)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7qgos"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-texture = ExtResource("2_cjfk0")
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+texture = ExtResource("3_vj6dk")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
@@ -86,9 +83,9 @@ region_rect = Rect2(4, 4, 24, 24)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_08jry"]
 content_margin_left = 4.0
 content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-texture = ExtResource("2_cjfk0")
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("3_vj6dk")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
@@ -194,6 +191,25 @@ bg_color = Color(0.117647, 0.227451, 0.160784, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05tig"]
 
+[sub_resource type="FontVariation" id="FontVariation_yin2u"]
+base_font = ExtResource("3_110ce")
+
+[sub_resource type="FontVariation" id="FontVariation_wdt2l"]
+base_font = ExtResource("3_110ce")
+
+[sub_resource type="FontVariation" id="FontVariation_6cw85"]
+base_font = ExtResource("2_vj6dk")
+
+[sub_resource type="FontVariation" id="FontVariation_ttqs8"]
+base_font = ExtResource("6_1rmny")
+spacing_top = -1
+spacing_bottom = 1
+
+[sub_resource type="FontVariation" id="FontVariation_504p6"]
+base_font = ExtResource("2_vj6dk")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mihib"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5463q"]
 content_margin_left = 2.0
 content_margin_top = 4.0
@@ -268,9 +284,9 @@ region_rect = Rect2(5, 69, 22, 22)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_howt0"]
 content_margin_left = 4.0
-content_margin_top = 3.0
+content_margin_top = 4.0
 content_margin_right = 4.0
-content_margin_bottom = 3.0
+content_margin_bottom = 2.0
 texture = ExtResource("3_vj6dk")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
@@ -278,7 +294,7 @@ texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
-region_rect = Rect2(69, 70, 22, 22)
+region_rect = Rect2(69, 69, 22, 22)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj6dk"]
 bg_color = Color(0.117647, 0.227451, 0.160784, 1)
@@ -413,8 +429,8 @@ AppWindow/styles/panel = SubResource("StyleBoxTexture_t3v2v")
 Button/colors/font_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
 Button/colors/font_disabled_color = Color(0.188235, 0.364706, 0.258824, 1)
 Button/colors/font_focus_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
-Button/colors/font_hover_color = Color(0.933333, 1, 0.8, 1)
-Button/colors/font_hover_pressed_color = Color(0.933333, 1, 0.8, 1)
+Button/colors/font_hover_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+Button/colors/font_hover_pressed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
 Button/colors/font_outline_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
 Button/colors/font_pressed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
 Button/colors/icon_disabled_color = Color(1, 1, 1, 1)
@@ -432,7 +448,7 @@ Button/fonts/font = SubResource("FontVariation_mihib")
 Button/styles/disabled = SubResource("StyleBoxTexture_hillf")
 Button/styles/focus = SubResource("StyleBoxEmpty_vj6dk")
 Button/styles/hover = SubResource("StyleBoxTexture_6rgb0")
-Button/styles/hover_pressed = SubResource("StyleBoxTexture_110ce")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_mworl")
 Button/styles/normal = SubResource("StyleBoxTexture_7qgos")
 Button/styles/pressed = SubResource("StyleBoxTexture_08jry")
 CheckBox/colors/font_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
@@ -482,6 +498,35 @@ LevelItem/colors/font_disabled_color = Color(0.188235, 0.364706, 0.258824, 1)
 LevelItem/colors/font_hover_color = Color(0.933333, 1, 0.8, 1)
 LevelItem/styles/hover = SubResource("StyleBoxFlat_110ce")
 LevelItem/styles/panel = SubResource("StyleBoxEmpty_05tig")
+RichTextLabel/colors/default_color = Color(0.188235, 0.364706, 0.258824, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 0)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
+RichTextLabel/colors/selection_color = Color(0.1, 0.1, 1, 0.8)
+RichTextLabel/colors/table_border = Color(0, 0, 0, 0)
+RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 0)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 0)
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/constants/outline_size = 0
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/shadow_outline_size = 1
+RichTextLabel/constants/table_h_separation = 3
+RichTextLabel/constants/table_v_separation = 3
+RichTextLabel/constants/text_highlight_h_padding = 3
+RichTextLabel/constants/text_highlight_v_padding = 3
+RichTextLabel/font_sizes/bold_font_size = 16
+RichTextLabel/font_sizes/bold_italics_font_size = 16
+RichTextLabel/font_sizes/italics_font_size = 16
+RichTextLabel/font_sizes/mono_font_size = 16
+RichTextLabel/font_sizes/normal_font_size = 16
+RichTextLabel/fonts/bold_font = SubResource("FontVariation_yin2u")
+RichTextLabel/fonts/bold_italics_font = SubResource("FontVariation_wdt2l")
+RichTextLabel/fonts/italics_font = SubResource("FontVariation_6cw85")
+RichTextLabel/fonts/mono_font = SubResource("FontVariation_ttqs8")
+RichTextLabel/fonts/normal_font = SubResource("FontVariation_504p6")
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_mihib")
 TaskBar/base_type = &"PanelContainer"
 TaskBar/styles/panel = SubResource("StyleBoxTexture_5463q")
 TaskBarButton/base_type = &"Button"

@@ -46,6 +46,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _ready():
 	task_start()
 
+# CAN DELETE FUNCTIONALITY IN typing_task
 func update_caret(index: int):
 	var line = prompt.get_character_line(index + 1)
 	if current_line != line:
@@ -55,6 +56,7 @@ func update_caret(index: int):
 	else:
 		var width = font.get_string_size(text[index],0,-1,font_size).x
 		print(font.get_string_size(text[index],0,-1,font_size))
+		print(font)
 		caret.position.x += width
 	caret.visible = true
 	blink_timer.start()

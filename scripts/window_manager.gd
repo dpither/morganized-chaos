@@ -4,21 +4,23 @@ class_name WindowManager
 @export var taskbar: TaskBar
 
 var app_windows: Array[AppWindow] = []
-var app_scene: PackedScene = preload("res://scenes/app_window.tscn")
-
-var _level_select_scene: PackedScene = preload("res://scenes/level_select.tscn")
+var app_window_scene: PackedScene = preload("res://scenes/components/app_window/app_window.tscn")
+var _test_scene: PackedScene = preload("res://scenes/app_content/testlevel.tscn")
+var _level_select_scene: PackedScene = preload("res://scenes/app_content/level_select.tscn")
 var _todo_icon: AtlasTexture = preload("res://assets/ui/todo_icon.tres")
 
 func _ready() -> void:
 	_spawn_level_select_window()
-	#mouse_filter = Control.MOUSE_FILTER_IGNORE
 	spawn_app_window("test")
-	#spawn_app_window("test2")
 
 func spawn_app_window(title: String) -> AppWindow:
-	var app_window:AppWindow = app_scene.instantiate()
+	var app_window: AppWindow = app_window_scene.instantiate()
 	app_window.set_title(title)
 	app_windows.append(app_window)
+# TODO: CHANGE HOW CONTENT IS GRABBED
+	var test_content: TypingLevel = _test_scene.instantiate()
+	app_window.content = test_content
+
 	_connect_window_signals(app_window)
 	add_child(app_window)
 	taskbar.on_app_window_spawned(app_window)
@@ -26,7 +28,7 @@ func spawn_app_window(title: String) -> AppWindow:
 	return app_window
 
 func _spawn_level_select_window() -> void:
-	var level_select_window: AppWindow = app_scene.instantiate()
+	var level_select_window: AppWindow = app_window_scene.instantiate()
 	level_select_window.set_title("TODO")
 	level_select_window.set_icon(_todo_icon)
 	level_select_window.can_close = false

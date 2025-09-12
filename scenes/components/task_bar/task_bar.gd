@@ -2,7 +2,7 @@ extends Control
 class_name TaskBar
 
 @export var task_bar_button_contanier: Container
-var task_bar_button_scene: PackedScene = preload("res://scenes/task_bar_button.tscn")
+@export var task_bar_button_scene: PackedScene
 
 func on_app_window_spawned(app_window: AppWindow):
 	var taskbar_button: TaskBarButton = task_bar_button_scene.instantiate()

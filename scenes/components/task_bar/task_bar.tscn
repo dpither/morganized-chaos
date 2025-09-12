@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d251men22v2cw"]
+[gd_scene load_steps=6 format=3 uid="uid://d251men22v2cw"]
 
 [ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://theme.tres" id="1_ays6e"]
-[ext_resource type="Script" uid="uid://cwin6mnchq4ry" path="res://scripts/task_bar.gd" id="2_vodsu"]
+[ext_resource type="Script" uid="uid://cwin6mnchq4ry" path="res://scenes/components/task_bar/task_bar.gd" id="2_vodsu"]
 [ext_resource type="Texture2D" uid="uid://7gkr2p2va016" path="res://assets/ui/morganized-chaos-ui-sheet.png" id="3_mobc2"]
+[ext_resource type="PackedScene" uid="uid://bsc6jb7dq5an6" path="res://scenes/components/task_bar_button/task_bar_button.tscn" id="3_n2rxt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eysme"]
 atlas = ExtResource("3_mobc2")
@@ -13,6 +14,7 @@ theme = ExtResource("1_ays6e")
 theme_type_variation = &"TaskBar"
 script = ExtResource("2_vodsu")
 task_bar_button_contanier = NodePath("HBoxContainer/AppContainer/TaskBarButtonContainer")
+task_bar_button_scene = ExtResource("3_n2rxt")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

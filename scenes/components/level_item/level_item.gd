@@ -29,7 +29,7 @@ func on_item_completed():
 	play_icon.hide()
 
 func _on_mouse_entered() -> void:
-	add_theme_stylebox_override("panel",get_theme_stylebox("hover", "LevelItem"))
+	add_theme_stylebox_override("panel", get_theme_stylebox("hover", "LevelItem"))
 	if not is_completed:
 		play_icon.show()
 		name_label.set("theme_override_colors/font_color", get_theme_color("font_hover_color", "LevelItem"))

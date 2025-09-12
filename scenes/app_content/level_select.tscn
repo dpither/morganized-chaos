@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=3 uid="uid://5t0yvgxwcpbo"]
+
+[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://theme.tres" id="1_uhf0v"]
+[ext_resource type="Script" uid="uid://4x0tnf1hcjor" path="res://scripts/level_select.gd" id="2_3f0pr"]
+[ext_resource type="PackedScene" uid="uid://b4j4fg8eumo16" path="res://scenes/components/level_item/level_item.tscn" id="3_3x3kj"]
+
+[node name="LevelSelector" type="Control" node_paths=PackedStringArray("scroll_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme = ExtResource("1_uhf0v")
+script = ExtResource("2_3f0pr")
+scroll_container = NodePath("Background/ScrollContainer")
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"Inset1"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_uhf0v")
+scroll_vertical_custom_step = 15.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="LevelList" type="VBoxContainer" parent="Background/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="TaskItem" parent="Background/ScrollContainer/MarginContainer/LevelList" instance=ExtResource("3_3x3kj")]
+layout_mode = 2
+
+[node name="TaskItem2" parent="Background/ScrollContainer/MarginContainer/LevelList" instance=ExtResource("3_3x3kj")]
+layout_mode = 2
+
+[node name="TaskItem3" parent="Background/ScrollContainer/MarginContainer/LevelList" instance=ExtResource("3_3x3kj")]
+layout_mode = 2
+
+[node name="TaskItem4" parent="Background/ScrollContainer/MarginContainer/LevelList" instance=ExtResource("3_3x3kj")]
+layout_mode = 2
+
+[node name="TaskItem5" parent="Background/ScrollContainer/MarginContainer/LevelList" instance=ExtResource("3_3x3kj")]
+layout_mode = 2
+
+[node name="TaskItem6" parent="Background/ScrollContainer/MarginContainer/LevelList" instance=ExtResource("3_3x3kj")]
+layout_mode = 2
+
+[node name="TaskItem7" parent="Background/ScrollContainer/MarginContainer/LevelList" instance=ExtResource("3_3x3kj")]
+layout_mode = 2
+
+[node name="TaskItem8" parent="Background/ScrollContainer/MarginContainer/LevelList" instance=ExtResource("3_3x3kj")]
+layout_mode = 2
+
+[node name="TaskItem9" parent="Background/ScrollContainer/MarginContainer/LevelList" instance=ExtResource("3_3x3kj")]
+layout_mode = 2
+
+[node name="TaskItem10" parent="Background/ScrollContainer/MarginContainer/LevelList" instance=ExtResource("3_3x3kj")]
+layout_mode = 2
+
+[node name="TaskItem11" parent="Background/ScrollContainer/MarginContainer/LevelList" instance=ExtResource("3_3x3kj")]
+layout_mode = 2
+
+[node name="TaskItem12" parent="Background/ScrollContainer/MarginContainer/LevelList" instance=ExtResource("3_3x3kj")]
+layout_mode = 2
+
+[node name="TaskItem13" parent="Background/ScrollContainer/MarginContainer/LevelList" instance=ExtResource("3_3x3kj")]
+layout_mode = 2
+
+[node name="TaskItem14" parent="Background/ScrollContainer/MarginContainer/LevelList" instance=ExtResource("3_3x3kj")]
+layout_mode = 2

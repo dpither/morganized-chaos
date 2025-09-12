@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://b4j4fg8eumo16"]
 
 [ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://theme.tres" id="1_5pv2e"]
-[ext_resource type="Script" uid="uid://bcv8355jllfes" path="res://scripts/level_item.gd" id="2_rns1o"]
+[ext_resource type="Script" uid="uid://bcv8355jllfes" path="res://scenes/components/level_item/level_item.gd" id="2_rns1o"]
 [ext_resource type="Texture2D" uid="uid://7gkr2p2va016" path="res://assets/ui/morganized-chaos-ui-sheet.png" id="3_hkret"]
 
 [sub_resource type="Image" id="Image_110ce"]

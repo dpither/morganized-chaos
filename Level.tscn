@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=4 uid="uid://bcj4pjjs33pnj"]
+[gd_scene load_steps=12 format=4 uid="uid://bcj4pjjs33pnj"]
 
 [ext_resource type="Script" uid="uid://dm2urg0b31v0g" path="res://level.gd" id="1_wkftn"]
-[ext_resource type="FontFile" uid="uid://de7bpgdsslej1" path="res://assets/ui/fonts/PixelOperator.ttf" id="2_mxnmf"]
 [ext_resource type="Script" uid="uid://ch1hmakn8a2qu" path="res://prompt.gd" id="3_m3clv"]
 [ext_resource type="AudioStream" uid="uid://1q0313seu5e7" path="res://assets/correct.wav" id="4_q4iis"]
 [ext_resource type="AudioStream" uid="uid://bxurs5yvfn7kr" path="res://assets/wrong.wav" id="5_m3clv"]
@@ -65,11 +64,10 @@ color = Color(0.0156863, 0.0470588, 0.0235294, 1)
 clip_contents = false
 offset_left = 202.0
 offset_top = 45.0
-offset_right = 465.0
-offset_bottom = 281.0
+offset_right = 313.0
+offset_bottom = 122.0
 mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("2_mxnmf")
-theme_override_font_sizes/normal_font_size = 16
+theme = ExtResource("7_4eo0i")
 bbcode_enabled = true
 text = "[color=#305d42]The quick brown fox jumps over the lazy dog.[/color]"
 fit_content = true
@@ -141,6 +139,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("7_4eo0i")
 alignment = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/VBoxContainer"]

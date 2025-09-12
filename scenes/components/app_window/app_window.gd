@@ -48,7 +48,7 @@ func _on_title_bar_pressed(event: InputEvent):
 	elif event is InputEventMouseMotion and dragging:
 		if is_maximized:
 			return
-		global_position = (get_global_mouse_position() - drag_offset).clamp(Vector2.ZERO,get_parent_area_size()-size)
+		global_position = (get_global_mouse_position() - drag_offset).clamp(Vector2.ZERO, get_parent_area_size() - size)
 
 func toggle_maximize():
 	if not is_maximized:
@@ -60,9 +60,11 @@ func toggle_maximize():
 		is_maximized = true
 	else:
 		global_position = prev_position
-		size = prev_size 
+		size = prev_size
 		maximize_button.icon = get_theme_icon("window_maximize", "TitleBarButton")
 		is_maximized = false
+	if content is TypingLevel:
+		content.on_window_resized()
 
 func minimize():
 	hide()

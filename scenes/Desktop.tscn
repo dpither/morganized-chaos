@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://theme.tres" id="1_81rff"]
 [ext_resource type="Script" uid="uid://c55jk0rb6hixe" path="res://scripts/window_manager.gd" id="3_dcrhm"]
-[ext_resource type="PackedScene" uid="uid://d251men22v2cw" path="res://scenes/task_bar.tscn" id="4_ox5hf"]
+[ext_resource type="PackedScene" uid="uid://d251men22v2cw" path="res://scenes/components/task_bar/task_bar.tscn" id="4_ox5hf"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
