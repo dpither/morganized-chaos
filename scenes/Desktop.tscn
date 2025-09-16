@@ -1,17 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcudccp2o1nrt"]
+[gd_scene load_steps=5 format=3 uid="uid://dcudccp2o1nrt"]
 
-[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://theme.tres" id="1_81rff"]
+[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_81rff"]
 [ext_resource type="Script" uid="uid://c55jk0rb6hixe" path="res://scripts/window_manager.gd" id="3_dcrhm"]
+[ext_resource type="Script" uid="uid://cqyflh8uw6c38" path="res://scripts/game_timer.gd" id="4_dcrhm"]
 [ext_resource type="PackedScene" uid="uid://d251men22v2cw" path="res://scenes/components/task_bar/task_bar.tscn" id="4_ox5hf"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = -0.503
+anchor_top = -0.496
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 321.92
+offset_top = 178.56
+offset_right = 320.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_81rff")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -40,3 +49,6 @@ taskbar = NodePath("../TaskBar")
 
 [node name="TaskBar" parent="VBoxContainer" instance=ExtResource("4_ox5hf")]
 layout_mode = 2
+
+[node name="GameTimer" type="Timer" parent="."]
+script = ExtResource("4_dcrhm")

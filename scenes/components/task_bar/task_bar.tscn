@@ -1,19 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://d251men22v2cw"]
+[gd_scene load_steps=9 format=3 uid="uid://d251men22v2cw"]
 
-[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://theme.tres" id="1_ays6e"]
+[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_ays6e"]
 [ext_resource type="Script" uid="uid://cwin6mnchq4ry" path="res://scenes/components/task_bar/task_bar.gd" id="2_vodsu"]
 [ext_resource type="Texture2D" uid="uid://7gkr2p2va016" path="res://assets/ui/morganized-chaos-ui-sheet.png" id="3_mobc2"]
 [ext_resource type="PackedScene" uid="uid://bsc6jb7dq5an6" path="res://scenes/components/task_bar_button/task_bar_button.tscn" id="3_n2rxt"]
+[ext_resource type="Script" uid="uid://c2xdjrt185rko" path="res://scripts/score_display.gd" id="5_pqxnp"]
+[ext_resource type="FontFile" uid="uid://de7bpgdsslej1" path="res://assets/ui/fonts/PixelOperator.ttf" id="6_y3jcu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eysme"]
 atlas = ExtResource("3_mobc2")
 region = Rect2(40, 136, 16, 16)
 
-[node name="TaskBar" type="PanelContainer" node_paths=PackedStringArray("task_bar_button_contanier")]
+[sub_resource type="FontVariation" id="FontVariation_70qed"]
+base_font = ExtResource("6_y3jcu")
+spacing_glyph = -1
+spacing_space = -2
+
+[node name="TaskBar" type="PanelContainer" node_paths=PackedStringArray("task_bar_button_container")]
 theme = ExtResource("1_ays6e")
 theme_type_variation = &"TaskBar"
 script = ExtResource("2_vodsu")
-task_bar_button_contanier = NodePath("HBoxContainer/AppContainer/TaskBarButtonContainer")
+task_bar_button_container = NodePath("HBoxContainer/AppContainer/TaskBarButtonContainer")
 task_bar_button_scene = ExtResource("3_n2rxt")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -36,30 +43,21 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ClockBackground" type="PanelContainer" parent="HBoxContainer"]
+[node name="ClockContainer" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(61, 0)
 layout_mode = 2
 theme = ExtResource("1_ays6e")
 theme_type_variation = &"Inset2"
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/ClockBackground"]
+[node name="Time" type="Label" parent="HBoxContainer/ClockContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_right = 2
-
-[node name="ClockContainer" type="HBoxContainer" parent="HBoxContainer/ClockBackground/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 4
+size_flags_horizontal = 4
 theme = ExtResource("1_ays6e")
+theme_override_fonts/font = SubResource("FontVariation_70qed")
+text = "12:00PM"
+script = ExtResource("5_pqxnp")
 
-[node name="Date" type="Label" parent="HBoxContainer/ClockBackground/MarginContainer/ClockContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/ClockContainer"]
 layout_mode = 2
-theme = ExtResource("1_ays6e")
-text = "2025-09-01"
-horizontal_alignment = 1
-
-[node name="Time" type="Label" parent="HBoxContainer/ClockBackground/MarginContainer/ClockContainer"]
-layout_mode = 2
-theme = ExtResource("1_ays6e")
-text = "1:00 AM"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_right = 7

@@ -1,14 +1,6 @@
 extends Button
 class_name TaskBarButton
 
-var task_name := ""
-var task_icon: Texture2D
-
-func _ready() -> void:
-	if task_icon:
-		icon = task_icon
-	text = task_name
-
 func set_focus(is_focused: bool) -> void:
 	if is_focused:
 		button_pressed = true

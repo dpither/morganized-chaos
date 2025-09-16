@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://5t0yvgxwcpbo"]
+
+[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_uhf0v"]
+[ext_resource type="Script" uid="uid://4x0tnf1hcjor" path="res://scenes/app_content/level_select/level_select.gd" id="2_3f0pr"]
+[ext_resource type="PackedScene" uid="uid://b4j4fg8eumo16" path="res://scenes/components/level_item/level_item.tscn" id="3_uy2b1"]
+
+[node name="LevelSelector" type="Control" node_paths=PackedStringArray("scroll_container", "level_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme = ExtResource("1_uhf0v")
+script = ExtResource("2_3f0pr")
+scroll_container = NodePath("Background/ScrollContainer")
+level_container = NodePath("Background/ScrollContainer/MarginContainer/LevelContainer")
+level_item_scene = ExtResource("3_uy2b1")
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"Inset2"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_uhf0v")
+scroll_vertical_custom_step = 15.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="LevelContainer" type="VBoxContainer" parent="Background/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 0

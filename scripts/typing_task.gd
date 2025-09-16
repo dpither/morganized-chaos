@@ -9,6 +9,7 @@ var raw_text := ""
 
 func _ready() -> void:
 	bbcode_enabled = true
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	raw_text = text
 	_update_task()
 
@@ -40,7 +41,7 @@ func get_cursor_position() -> Vector2:
 	var font = get_theme_font("normal_font")
 	var line = get_character_line(typed_count)
 	var y_offset = get_line_offset(line)
-	var line_range = get_line_range(line)
-	var line_text = raw_text.substr(line_range[0], typed_count - line_range[0])
+	var line_start_index = get_line_range(line).x
+	var line_text = raw_text.substr(line_start_index, typed_count - line_start_index)
 	var x_offset = font.get_string_size(line_text, HORIZONTAL_ALIGNMENT_LEFT, -1, get_font_size()).x
 	return position + Vector2(x_offset, y_offset)

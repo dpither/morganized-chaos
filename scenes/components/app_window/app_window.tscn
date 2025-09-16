@@ -1,12 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://to3y1jnu3cyi"]
+[gd_scene load_steps=7 format=3 uid="uid://to3y1jnu3cyi"]
 
-[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://theme.tres" id="1_dej2g"]
+[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_dej2g"]
 [ext_resource type="Script" uid="uid://s6j0r6t43hdn" path="res://scenes/components/app_window/app_window.gd" id="2_bwdwl"]
 [ext_resource type="Texture2D" uid="uid://7gkr2p2va016" path="res://assets/ui/morganized-chaos-ui-sheet.png" id="3_wycpe"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wdeh2"]
-atlas = ExtResource("3_wycpe")
-region = Rect2(8, 136, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hfd2n"]
 atlas = ExtResource("3_wycpe")
@@ -63,14 +59,12 @@ theme_type_variation = &"TitleBar"
 [node name="Icon" type="TextureRect" parent="VBoxContainer/Titlebar/Title"]
 layout_mode = 2
 mouse_filter = 2
-texture = SubResource("AtlasTexture_wdeh2")
 expand_mode = 2
 
 [node name="Title" type="Label" parent="VBoxContainer/Titlebar/Title"]
 layout_mode = 2
 theme = ExtResource("1_dej2g")
 theme_type_variation = &"TitleBar"
-text = "Test"
 
 [node name="ControlButtons" type="HBoxContainer" parent="VBoxContainer/Titlebar"]
 layout_mode = 2

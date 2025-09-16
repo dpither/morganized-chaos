@@ -30,7 +30,7 @@ spacing_bottom = 1
 content_margin_left = 3.0
 content_margin_top = 3.0
 content_margin_right = 3.0
-content_margin_bottom = 3.0
+content_margin_bottom = 4.0
 texture = ExtResource("3_vj6dk")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
@@ -46,7 +46,7 @@ region_rect = Rect2(4, 4, 24, 24)
 content_margin_left = 3.0
 content_margin_top = 3.0
 content_margin_right = 3.0
-content_margin_bottom = 3.0
+content_margin_bottom = 4.0
 texture = ExtResource("3_vj6dk")
 texture_margin_left = 3.0
 texture_margin_top = 3.0
@@ -57,6 +57,10 @@ axis_stretch_vertical = 1
 region_rect = Rect2(36, 4, 24, 24)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mworl"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 2.0
+content_margin_bottom = 3.0
 texture = ExtResource("3_vj6dk")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
@@ -70,7 +74,7 @@ region_rect = Rect2(100, 4, 24, 24)
 content_margin_left = 3.0
 content_margin_top = 3.0
 content_margin_right = 3.0
-content_margin_bottom = 3.0
+content_margin_bottom = 4.0
 texture = ExtResource("3_vj6dk")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
@@ -84,7 +88,7 @@ region_rect = Rect2(4, 4, 24, 24)
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 2.0
-content_margin_bottom = 2.0
+content_margin_bottom = 3.0
 texture = ExtResource("3_vj6dk")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
@@ -95,12 +99,12 @@ axis_stretch_vertical = 1
 region_rect = Rect2(68, 4, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cjfk0"]
-atlas = ExtResource("2_cjfk0")
-region = Rect2(11, 107, 10, 10)
+atlas = ExtResource("3_vj6dk")
+region = Rect2(41, 169, 13, 13)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vj6dk"]
-atlas = ExtResource("2_cjfk0")
-region = Rect2(43, 107, 10, 10)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rmny"]
+atlas = ExtResource("3_vj6dk")
+region = Rect2(105, 169, 13, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_110ce"]
 
@@ -110,61 +114,25 @@ region = Rect2(43, 107, 10, 10)
 
 [sub_resource type="ImageTexture" id="ImageTexture_05tig"]
 
-[sub_resource type="ImageTexture" id="ImageTexture_1rmny"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mihib"]
+atlas = ExtResource("3_vj6dk")
+region = Rect2(9, 169, 13, 13)
 
-[sub_resource type="ImageTexture" id="ImageTexture_mihib"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndmpe"]
+atlas = ExtResource("3_vj6dk")
+region = Rect2(73, 169, 13, 13)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vj6dk"]
-texture = ExtResource("2_cjfk0")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(9, 73, 14, 14)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ttqs8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yin2u"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_05tig"]
-texture = ExtResource("2_cjfk0")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(9, 73, 14, 14)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wdt2l"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1rmny"]
-texture = ExtResource("2_cjfk0")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(9, 73, 14, 14)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6cw85"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mihib"]
-texture = ExtResource("2_cjfk0")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(9, 73, 14, 14)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_504p6"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yin2u"]
-texture = ExtResource("2_cjfk0")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(9, 73, 14, 14)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_howt0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ttqs8"]
 texture = ExtResource("3_05tig")
@@ -459,24 +427,24 @@ CheckBox/colors/font_hover_pressed_color = Color(0.933333, 1, 0.8, 1)
 CheckBox/colors/font_outline_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
 CheckBox/colors/font_pressed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
 CheckBox/constants/check_v_offset = 0
-CheckBox/constants/h_separation = 0
+CheckBox/constants/h_separation = 5
 CheckBox/constants/outline_size = 0
 CheckBox/font_sizes/font_size = 16
 CheckBox/fonts/font = SubResource("FontVariation_mihib")
 CheckBox/icons/checked = SubResource("AtlasTexture_cjfk0")
-CheckBox/icons/checked_disabled = SubResource("AtlasTexture_vj6dk")
+CheckBox/icons/checked_disabled = SubResource("AtlasTexture_1rmny")
 CheckBox/icons/radio_checked = SubResource("AtlasTexture_110ce")
 CheckBox/icons/radio_checked_disabled = SubResource("AtlasTexture_05tig")
 CheckBox/icons/radio_unchecked = SubResource("ImageTexture_110ce")
 CheckBox/icons/radio_unchecked_disabled = SubResource("ImageTexture_05tig")
-CheckBox/icons/unchecked = SubResource("ImageTexture_1rmny")
-CheckBox/icons/unchecked_disabled = SubResource("ImageTexture_mihib")
-CheckBox/styles/disabled = SubResource("StyleBoxTexture_vj6dk")
+CheckBox/icons/unchecked = SubResource("AtlasTexture_mihib")
+CheckBox/icons/unchecked_disabled = SubResource("AtlasTexture_ndmpe")
+CheckBox/styles/disabled = SubResource("StyleBoxEmpty_ttqs8")
 CheckBox/styles/focus = SubResource("StyleBoxEmpty_yin2u")
-CheckBox/styles/hover = SubResource("StyleBoxTexture_05tig")
-CheckBox/styles/hover_pressed = SubResource("StyleBoxTexture_1rmny")
-CheckBox/styles/normal = SubResource("StyleBoxTexture_mihib")
-CheckBox/styles/pressed = SubResource("StyleBoxTexture_yin2u")
+CheckBox/styles/hover = SubResource("StyleBoxEmpty_wdt2l")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxEmpty_6cw85")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_504p6")
+CheckBox/styles/pressed = SubResource("StyleBoxEmpty_howt0")
 Inset1/base_type = &"PanelContainer"
 Inset1/styles/panel = SubResource("StyleBoxTexture_ttqs8")
 Inset2/base_type = &"PanelContainer"

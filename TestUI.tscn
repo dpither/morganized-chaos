@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cr8joeugtw26j"]
+[gd_scene load_steps=11 format=3 uid="uid://cr8joeugtw26j"]
 
 [ext_resource type="Texture2D" uid="uid://7gkr2p2va016" path="res://assets/ui/morganized-chaos-ui-sheet.png" id="1_af6lf"]
-[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://theme.tres" id="1_p666j"]
+[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_p666j"]
 [ext_resource type="Texture2D" uid="uid://dyio7na2w1mr2" path="res://assets/ui/checker.png" id="2_hd0qv"]
+[ext_resource type="Texture2D" uid="uid://b6ih85x7xxj83" path="res://resources/icons/todo_icon.tres" id="4_hd0qv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p666j"]
 atlas = ExtResource("1_af6lf")
@@ -40,6 +41,7 @@ theme = ExtResource("1_p666j")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0.498039)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,7 +52,6 @@ texture = ExtResource("2_hd0qv")
 stretch_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-visible = false
 layout_mode = 1
 offset_right = 224.0
 offset_bottom = 56.0
@@ -100,23 +101,32 @@ theme_override_constants/separation = 8
 
 [node name="FalseCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/Row2"]
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 5
+theme = ExtResource("1_p666j")
+text = "test"
+icon = ExtResource("4_hd0qv")
+
+[node name="FalseCheckBox2" type="CheckBox" parent="MarginContainer/VBoxContainer/Row2"]
+layout_mode = 2
+size_flags_vertical = 5
 theme = ExtResource("1_p666j")
 
 [node name="TrueCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/Row2"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_vertical = 5
 theme = ExtResource("1_p666j")
 button_pressed = true
 
 [node name="DisabledCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/Row2"]
 layout_mode = 2
+size_flags_vertical = 5
 theme = ExtResource("1_p666j")
 disabled = true
 
 [node name="TrueDisabledCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/Row2"]
 layout_mode = 2
+size_flags_vertical = 5
 theme = ExtResource("1_p666j")
 disabled = true
 button_pressed = true
@@ -194,4 +204,4 @@ custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Button"
+text = "Whats New"

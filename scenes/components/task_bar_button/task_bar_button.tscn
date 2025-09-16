@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsc6jb7dq5an6"]
+[gd_scene load_steps=3 format=3 uid="uid://bsc6jb7dq5an6"]
 
-[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://theme.tres" id="1_d0x01"]
-[ext_resource type="Texture2D" uid="uid://b6ih85x7xxj83" path="res://assets/ui/todo_icon.tres" id="2_se3bl"]
+[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_d0x01"]
 [ext_resource type="Script" uid="uid://beho6vky08wbv" path="res://scenes/components/task_bar_button/task_bar_button.gd" id="3_cjajg"]
 
 [node name="TaskBarButton" type="Button"]
@@ -13,9 +12,9 @@ offset_top = -11.0
 offset_right = 24.0
 offset_bottom = 11.0
 grow_vertical = 2
+focus_mode = 0
 theme = ExtResource("1_d0x01")
 theme_type_variation = &"TaskBarButton"
 toggle_mode = true
-icon = ExtResource("2_se3bl")
 alignment = 0
 script = ExtResource("3_cjajg")

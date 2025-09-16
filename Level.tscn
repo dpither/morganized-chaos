@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dm2urg0b31v0g" path="res://level.gd" id="1_wkftn"]
 [ext_resource type="Script" uid="uid://ch1hmakn8a2qu" path="res://prompt.gd" id="3_m3clv"]
-[ext_resource type="AudioStream" uid="uid://1q0313seu5e7" path="res://assets/correct.wav" id="4_q4iis"]
-[ext_resource type="AudioStream" uid="uid://bxurs5yvfn7kr" path="res://assets/wrong.wav" id="5_m3clv"]
-[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://theme.tres" id="7_4eo0i"]
+[ext_resource type="AudioStream" uid="uid://1q0313seu5e7" path="res://assets/audio/correct.wav" id="4_q4iis"]
+[ext_resource type="AudioStream" uid="uid://bxurs5yvfn7kr" path="res://assets/audio/wrong.wav" id="5_m3clv"]
+[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="7_4eo0i"]
 [ext_resource type="Texture2D" uid="uid://7gkr2p2va016" path="res://assets/ui/morganized-chaos-ui-sheet.png" id="8_86ljf"]
 
 [sub_resource type="FontFile" id="FontFile_2nifc"]

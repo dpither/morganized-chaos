@@ -15,11 +15,19 @@ run/main_scene="uid://dcudccp2o1nrt"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://resources/default_bus_layout.tres"
+
 [autoload]
 
+GameState="*res://scripts/autoload/game_state.gd"
 AppFactory="*res://scripts/autoload/app_factory.gd"
 AudioManager="*res://scripts/autoload/audio_manager.gd"
-GameState="*res://scripts/autoload/game_state.gd"
+
+[debug]
+
+gdscript/warnings/integer_division=0
 
 [display]
 

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AppData" load_steps=4 format=3 uid="uid://vosskpahmsva"]
+
+[ext_resource type="PackedScene" uid="uid://5t0yvgxwcpbo" path="res://scenes/app_content/level_select.tscn" id="1_2agvd"]
+[ext_resource type="Texture2D" uid="uid://b6ih85x7xxj83" path="res://resources/icons/todo_icon.tres" id="2_pmt53"]
+[ext_resource type="Script" uid="uid://dlwyfasp4f1ur" path="res://scripts/app_data.gd" id="3_athf1"]
+
+[resource]
+script = ExtResource("3_athf1")
+id = "level_select"
+title = "TODO"
+icon = ExtResource("2_pmt53")
+content = ExtResource("1_2agvd")
+can_close = false
+metadata/_custom_type_script = "uid://dlwyfasp4f1ur"
