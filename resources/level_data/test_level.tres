@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://ce117m2jp2v7"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=4 format=3 uid="uid://ce117m2jp2v7"]
 
 [ext_resource type="PackedScene" uid="uid://de5qicshvuj7t" path="res://scenes/app_content/test_level.tscn" id="1_uwvxs"]
 [ext_resource type="Script" uid="uid://o8lg02lx7xge" path="res://scripts/level_data.gd" id="2_pnasu"]
+[ext_resource type="Texture2D" uid="uid://blpmeyg276tar" path="res://resources/icons/volume_icon.tres" id="2_yq83c"]
 
 [resource]
 script = ExtResource("2_pnasu")
 is_completed = false
 id = "test_level_1"
 title = "Dummy Level 1"
+icon = ExtResource("2_yq83c")
 content = ExtResource("1_uwvxs")
 can_close = true
 metadata/_custom_type_script = "uid://o8lg02lx7xge"

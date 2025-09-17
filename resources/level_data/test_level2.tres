@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://biuqhhqo52fdh"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://6tauj883cij8"]
 
 [ext_resource type="PackedScene" uid="uid://de5qicshvuj7t" path="res://scenes/app_content/test_level.tscn" id="1_mufu2"]
 [ext_resource type="Script" uid="uid://o8lg02lx7xge" path="res://scripts/level_data.gd" id="2_ub6le"]

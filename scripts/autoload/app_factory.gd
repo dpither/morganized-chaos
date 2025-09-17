@@ -1,12 +1,13 @@
 extends Node
 
-var apps: Array[AppData] = []
+var apps: Array[AppData] = [
+  load("res://resources/app_data/level_select.tres"),
+]
 
 var app_window_scene: PackedScene = preload("res://scenes/components/app_window/app_window.tscn")
 
 func _ready() -> void:
   process_mode = Node.PROCESS_MODE_ALWAYS
-  _load_apps()
   for level in GameState.levels:
     apps.append(level)
 
@@ -20,16 +21,6 @@ func get_app_window(app_id: String) -> AppWindow:
   app_window.set_app_data(app_data)
 
   return app_window
-
-func _load_apps() -> void:
-  var path = "res://resources/app_data"
-  var directory = DirAccess.open(path)
-  if not directory:
-    return
-  for file_name in directory.get_files():
-    var app_data: AppData = load(path + "/" + file_name)
-    apps.append(app_data)
-  print_debug("Loaded " + path)
 
 func _get_app_data(app_id: String) -> AppData:
   for app in apps:
