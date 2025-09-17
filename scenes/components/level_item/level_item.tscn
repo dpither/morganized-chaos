@@ -37,7 +37,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 focus_mode = 0
-mouse_filter = 1
+mouse_filter = 2
 theme = ExtResource("1_5pv2e")
 
 [node name="Title" type="Label" parent="MarginContainer/HBoxContainer"]

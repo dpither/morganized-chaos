@@ -1,0 +1,197 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctg4fcgnyxxac"]
+
+[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_7d57n"]
+[ext_resource type="Script" uid="uid://3g8ukcfelsgr" path="res://scenes/components/pasued_menu/paused_menu.gd" id="1_uh7s2"]
+[ext_resource type="Texture2D" uid="uid://b7f42v74im18e" path="res://resources/icons/mute_icon.tres" id="3_tj8i1"]
+[ext_resource type="Texture2D" uid="uid://dsufkd7hkdo7" path="res://resources/icons/close_icon.tres" id="4_uh7s2"]
+[ext_resource type="Texture2D" uid="uid://blpmeyg276tar" path="res://resources/icons/volume_icon.tres" id="4_ws1ea"]
+[ext_resource type="Texture2D" uid="uid://oa7e0hlhxdu7" path="res://assets/ui/morganized-chaos-ui-frames.png" id="5_m7lra"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ws1ea"]
+atlas = ExtResource("5_m7lra")
+region = Rect2(40, 107, 16, 6)
+
+[node name="PausedMenu" type="Control" node_paths=PackedStringArray("music_slider", "sound_slider", "resume_button", "close_button")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uh7s2")
+music_slider = NodePath("MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MusicSliderContainer/MusicSlider")
+sound_slider = NodePath("MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/SoundSliderContainer/SoundSlider")
+resume_button = NodePath("MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/ResumeButton")
+close_button = NodePath("MenuPanel/VBoxContainer/Titlebar/ControlButtons/CloseButton")
+
+[node name="BackgroundTint" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0156863, 0.0470588, 0.0235294, 0.686275)
+
+[node name="MenuPanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -68.0
+offset_right = 120.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_7d57n")
+theme_type_variation = &"AppWindow"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="Titlebar" type="PanelContainer" parent="MenuPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme = ExtResource("1_7d57n")
+theme_type_variation = &"TitleBar"
+
+[node name="Title" type="HBoxContainer" parent="MenuPanel/VBoxContainer/Titlebar"]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+theme_type_variation = &"TitleBar"
+
+[node name="Title" type="Label" parent="MenuPanel/VBoxContainer/Titlebar/Title"]
+layout_mode = 2
+theme = ExtResource("1_7d57n")
+theme_type_variation = &"TitleBar"
+text = "GAME PAUSED"
+
+[node name="ControlButtons" type="HBoxContainer" parent="MenuPanel/VBoxContainer/Titlebar"]
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="CloseButton" type="Button" parent="MenuPanel/VBoxContainer/Titlebar/ControlButtons"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_7d57n")
+theme_type_variation = &"TitleBarButton"
+icon = ExtResource("4_uh7s2")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuPanel/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_7d57n")
+theme_type_variation = &"Inset2"
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="MusicSliderContainer" type="HBoxContainer" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MusicLabel" type="Label" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MusicSliderContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="Mute" type="TextureRect" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MusicSliderContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_tj8i1")
+
+[node name="MusicSlider" type="HSlider" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MusicSliderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+min_value = -60.0
+max_value = 0.0
+step = 6.0
+value = -12.0
+rounded = true
+tick_count = 11
+ticks_on_borders = true
+
+[node name="Volume" type="TextureRect" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MusicSliderContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_ws1ea")
+
+[node name="Divider" type="TextureRect" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_ws1ea")
+
+[node name="SoundSliderContainer" type="HBoxContainer" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SoundLabel" type="Label" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/SoundSliderContainer"]
+layout_mode = 2
+text = "Sound"
+
+[node name="Mute" type="TextureRect" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/SoundSliderContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_tj8i1")
+
+[node name="SoundSlider" type="HSlider" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/SoundSliderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+min_value = -60.0
+max_value = 0.0
+step = 6.0
+value = -12.0
+rounded = true
+tick_count = 11
+ticks_on_borders = true
+
+[node name="Volume" type="TextureRect" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/SoundSliderContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_ws1ea")
+
+[node name="ResumeButton" type="Button" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+text = "Resume"

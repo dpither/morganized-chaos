@@ -6,6 +6,7 @@
 visible = false
 offset_right = 1.0
 offset_bottom = 16.0
+mouse_filter = 2
 color = Color(0.0156863, 0.0470588, 0.0235294, 1)
 script = ExtResource("1_pish3")
 text_cursor_timer = NodePath("TextCursorTimer")

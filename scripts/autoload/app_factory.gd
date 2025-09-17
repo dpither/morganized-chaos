@@ -5,6 +5,7 @@ var apps: Array[AppData] = []
 var app_window_scene: PackedScene = preload("res://scenes/components/app_window/app_window.tscn")
 
 func _ready() -> void:
+  process_mode = Node.PROCESS_MODE_ALWAYS
   _load_apps()
   for level in GameState.levels:
     apps.append(level)

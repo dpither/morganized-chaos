@@ -3,6 +3,7 @@ class_name TaskBar
 
 @export var task_bar_button_container: Container
 @export var task_bar_button_scene: PackedScene
+@export var paused_menu_scene: PackedScene
 
 func on_app_window_spawned(app_window: AppWindow):
 	var taskbar_button: TaskBarButton = task_bar_button_scene.instantiate()
@@ -32,7 +33,6 @@ func on_app_window_restored(app_window: AppWindow):
 	taskbar_button.set_focus(true)
 
 func _on_taskbar_button_pressed(app_window: AppWindow, taskbar_button: TaskBarButton):
-	AudioManager.play_sfx(AudioManager.Sfx.mouse_click)
 	if taskbar_button.button_pressed:
 #		Set taskbar button stuff here
 		app_window.restore()

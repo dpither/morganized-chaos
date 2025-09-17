@@ -1,20 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://to3y1jnu3cyi"]
+[gd_scene load_steps=6 format=3 uid="uid://to3y1jnu3cyi"]
 
 [ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_dej2g"]
 [ext_resource type="Script" uid="uid://s6j0r6t43hdn" path="res://scenes/components/app_window/app_window.gd" id="2_bwdwl"]
-[ext_resource type="Texture2D" uid="uid://7gkr2p2va016" path="res://assets/ui/morganized-chaos-ui-sheet.png" id="3_wycpe"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hfd2n"]
-atlas = ExtResource("3_wycpe")
-region = Rect2(75, 44, 9, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0aqkh"]
-atlas = ExtResource("3_wycpe")
-region = Rect2(43, 43, 9, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tpxq1"]
-atlas = ExtResource("3_wycpe")
-region = Rect2(11, 43, 9, 9)
+[ext_resource type="Texture2D" uid="uid://cw2cjyy3o268k" path="res://resources/icons/minimize_icon.tres" id="3_bwdwl"]
+[ext_resource type="Texture2D" uid="uid://c4wfjhwbajm2m" path="res://resources/icons/maximize_icon.tres" id="4_wycpe"]
+[ext_resource type="Texture2D" uid="uid://dsufkd7hkdo7" path="res://resources/icons/close_icon.tres" id="5_wycpe"]
 
 [node name="AppWindow" type="PanelContainer" node_paths=PackedStringArray("close_button", "maximize_button", "minimize_button", "title_bar", "icon", "title", "content_root")]
 anchors_preset = 8
@@ -28,6 +18,7 @@ offset_right = 120.0
 offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("1_dej2g")
 theme_type_variation = &"AppWindow"
 script = ExtResource("2_bwdwl")
@@ -41,7 +32,6 @@ content_root = NodePath("VBoxContainer/Content")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-mouse_filter = 2
 theme_override_constants/separation = 2
 
 [node name="Titlebar" type="PanelContainer" parent="VBoxContainer"]
@@ -74,31 +64,35 @@ theme_override_constants/separation = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Titlebar/ControlButtons"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="Minimize" type="Button" parent="VBoxContainer/Titlebar/ControlButtons/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
+mouse_filter = 1
 theme = ExtResource("1_dej2g")
 theme_type_variation = &"TitleBarButton"
-icon = SubResource("AtlasTexture_hfd2n")
+icon = ExtResource("3_bwdwl")
 
 [node name="Maximize" type="Button" parent="VBoxContainer/Titlebar/ControlButtons/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
+mouse_filter = 1
 theme = ExtResource("1_dej2g")
 theme_type_variation = &"TitleBarButton"
-icon = SubResource("AtlasTexture_0aqkh")
+icon = ExtResource("4_wycpe")
 
 [node name="Close" type="Button" parent="VBoxContainer/Titlebar/ControlButtons"]
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
+mouse_filter = 1
 theme = ExtResource("1_dej2g")
 theme_type_variation = &"TitleBarButton"
-icon = SubResource("AtlasTexture_tpxq1")
+icon = ExtResource("5_wycpe")
 
 [node name="Content" type="Control" parent="VBoxContainer"]
 layout_mode = 2

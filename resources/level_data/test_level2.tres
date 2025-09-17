@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://biuqhhqo52fdh"]
+
+[ext_resource type="PackedScene" uid="uid://de5qicshvuj7t" path="res://scenes/app_content/test_level.tscn" id="1_mufu2"]
+[ext_resource type="Script" uid="uid://o8lg02lx7xge" path="res://scripts/level_data.gd" id="2_ub6le"]
+
+[resource]
+script = ExtResource("2_ub6le")
+is_completed = false
+id = "test_level_2"
+title = "Dummy Level 2"
+content = ExtResource("1_mufu2")
+can_close = true
+metadata/_custom_type_script = "uid://o8lg02lx7xge"

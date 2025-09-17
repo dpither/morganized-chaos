@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://blpmeyg276tar"]
+
+[ext_resource type="Texture2D" uid="uid://ck4gxpyyuntbc" path="res://assets/ui/morganized-chaos-ui-icons.png" id="1_4ny5q"]
+
+[resource]
+atlas = ExtResource("1_4ny5q")
+region = Rect2(40, 40, 16, 16)

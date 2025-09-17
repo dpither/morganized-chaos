@@ -1,5 +1,5 @@
-extends Control
 class_name TypingLevel
+extends Control
 
 const CURSOR_WIDTH := 1
 
@@ -13,9 +13,6 @@ var level_focused := false
 var is_complete = false
 
 func _ready() -> void:
-	# if app_window:
-	# 	# app_window.window_restored_down.connect(_on_app_window_restored_down)
-	# 	# app_window.window_maximized.connect(_on_app_window_maximized)
 	resized.connect(on_window_resized)
 	_update_cursor()
 
@@ -35,8 +32,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		_handle_char(typed_char)
 
 func on_window_resized() -> void:
-	print("level resized")
-	# await get_tree().process_frame
 	call_deferred("_update_cursor")
 
 func set_focus(is_focused: bool) -> void:
@@ -53,7 +48,7 @@ func _handle_char(typed_char: String) -> void:
 		return
 	var box: TypingTask = typing_tasks[current_task_index]
 	if box.type_next(typed_char):
-		AudioManager.play_sfx(AudioManager.Sfx.type_correct)
+		AudioManager.play_sound(AudioManager.SOUND_TYPE.TYPED_CORRECT)
 		if box.is_task_complete():
 			current_task_index += 1
 			if current_task_index >= typing_tasks.size():
@@ -62,7 +57,8 @@ func _handle_char(typed_char: String) -> void:
 			_update_cursor()
 		_update_cursor()
 	else:
-		#TODO: Handle typing errors
+		AudioManager.play_sound(AudioManager.SOUND_TYPE.TYPED_INCORRECT)
+		GameState.type_incorrect()
 		pass
 
 func _update_cursor() -> void:
@@ -75,9 +71,6 @@ func _update_cursor() -> void:
 func _complete() -> void:
 	is_complete = true
 	cursor.hide_cursor()
-
-# func _on_app_window_maximized() -> void:
-# 	_update_cursor()
-
-# func _on_app_window_restored_down() -> void:
-# 	_update_cursor()
+	app_window.close()
+	AudioManager.play_sound(AudioManager.SOUND_TYPE.LEVEL_COMPLETED)
+	GameState.complete_level(app_window.get_app_id())

@@ -1,5 +1,5 @@
-extends Control
 class_name AppWindow
+extends Control
 
 signal window_closed(window: AppWindow)
 signal window_minimized(window: AppWindow)
@@ -33,7 +33,6 @@ func _ready() -> void:
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_RIGHT:
-			AudioManager.play_sfx(AudioManager.Sfx.mouse_click)
 			focus_requested.emit(self)
 
 func _on_title_bar_pressed(event: InputEvent) -> void:
@@ -45,9 +44,9 @@ func _on_title_bar_pressed(event: InputEvent) -> void:
 			else:
 				_dragging = false
 	elif event is InputEventMouseMotion and _dragging:
-		if is_maximized:
-			return
-		global_position = (get_global_mouse_position() - _drag_offset).clamp(Vector2.ZERO, get_parent_area_size() - size)
+			if is_maximized:
+				return
+			global_position = (get_global_mouse_position() - _drag_offset).clamp(Vector2.ZERO, get_parent_area_size() - size)
 
 func toggle_maximize() -> void:
 	if not is_maximized:
@@ -70,6 +69,13 @@ func minimize() -> void:
 func restore() -> void:
 	show()
 	focus_requested.emit(self)
+
+func close() -> void:
+	hide()
+	if _can_close:
+		window_closed.emit(self)
+	else:
+		window_minimized.emit(self)
 
 func get_app_id() -> String:
 	return _id
@@ -99,18 +105,11 @@ func set_focus(is_focused: bool) -> void:
 		title.add_theme_color_override("font_color", get_theme_color("font_unfocused", "TitleBar"))
 
 func _on_close_pressed() -> void:
-	AudioManager.play_sfx(AudioManager.Sfx.mouse_click)
-	hide()
-	if _can_close:
-		window_closed.emit(self)
-	else:
-		window_minimized.emit(self)
+	close()
 
 func _on_maximize_pressed() -> void:
-	AudioManager.play_sfx(AudioManager.Sfx.mouse_click)
 	focus_requested.emit(self)
 	toggle_maximize()
 
 func _on_minimize_pressed() -> void:
-	AudioManager.play_sfx(AudioManager.Sfx.mouse_click)
 	minimize()

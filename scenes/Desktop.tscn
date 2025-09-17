@@ -1,26 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcudccp2o1nrt"]
+[gd_scene load_steps=10 format=3 uid="uid://dcudccp2o1nrt"]
 
 [ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_81rff"]
+[ext_resource type="Shader" uid="uid://bey6wjqmfvtfq" path="res://shaders/glitch-effect.gdshader" id="1_dcrhm"]
+[ext_resource type="Script" uid="uid://cbn7k7mpx0f3" path="res://scenes/computer_screen.gd" id="2_veafp"]
 [ext_resource type="Script" uid="uid://c55jk0rb6hixe" path="res://scripts/window_manager.gd" id="3_dcrhm"]
 [ext_resource type="Script" uid="uid://cqyflh8uw6c38" path="res://scripts/game_timer.gd" id="4_dcrhm"]
 [ext_resource type="PackedScene" uid="uid://d251men22v2cw" path="res://scenes/components/task_bar/task_bar.tscn" id="4_ox5hf"]
+[ext_resource type="Script" uid="uid://m340exx6kg8l" path="res://scripts/glitch_overlay.gd" id="6_6ajoh"]
+[ext_resource type="PackedScene" uid="uid://ctg4fcgnyxxac" path="res://scenes/components/pasued_menu/paused_menu.tscn" id="8_pkmwo"]
 
-[node name="Control" type="Control"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dcrhm"]
+shader = ExtResource("1_dcrhm")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 10.0
+shader_parameter/shake_block_size = 30.0
+shader_parameter/shake_color_rate = 0.0
+shader_parameter/enabled = false
+
+[node name="Desktop" type="Control"]
 layout_mode = 3
-anchor_left = -0.503
-anchor_top = -0.496
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 321.92
-offset_top = 178.56
-offset_right = 320.0
-offset_bottom = 180.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_81rff")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
+script = ExtResource("2_veafp")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -52,3 +58,18 @@ layout_mode = 2
 
 [node name="GameTimer" type="Timer" parent="."]
 script = ExtResource("4_dcrhm")
+
+[node name="GlitchOverlay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_dcrhm")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("6_6ajoh")
+
+[node name="PausedMenu" parent="." instance=ExtResource("8_pkmwo")]
+layout_mode = 1

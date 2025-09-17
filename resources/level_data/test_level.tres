@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("2_pnasu")
 is_completed = false
-id = "test_level"
-title = "Dummy Level"
+id = "test_level_1"
+title = "Dummy Level 1"
 content = ExtResource("1_uwvxs")
 can_close = true
 metadata/_custom_type_script = "uid://o8lg02lx7xge"
