@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bsc6jb7dq5an6" path="res://scenes/components/task_bar_button/task_bar_button.tscn" id="3_n2rxt"]
 [ext_resource type="PackedScene" uid="uid://ctg4fcgnyxxac" path="res://scenes/components/pasued_menu/paused_menu.tscn" id="4_y3jcu"]
 [ext_resource type="Script" uid="uid://c2xdjrt185rko" path="res://scripts/score_display.gd" id="5_pqxnp"]
-[ext_resource type="FontFile" uid="uid://de7bpgdsslej1" path="res://assets/ui/fonts/PixelOperator.ttf" id="6_y3jcu"]
+[ext_resource type="FontFile" uid="uid://de7bpgdsslej1" path="res://assets/fonts/PixelOperator.ttf" id="6_y3jcu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eysme"]
 atlas = ExtResource("3_mobc2")

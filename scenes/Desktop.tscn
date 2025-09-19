@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_81rff"]
 [ext_resource type="Shader" uid="uid://bey6wjqmfvtfq" path="res://shaders/glitch-effect.gdshader" id="1_dcrhm"]
-[ext_resource type="Script" uid="uid://cbn7k7mpx0f3" path="res://scenes/computer_screen.gd" id="2_veafp"]
+[ext_resource type="Script" uid="uid://cbn7k7mpx0f3" path="res://scripts/computer_screen.gd" id="2_veafp"]
 [ext_resource type="Script" uid="uid://c55jk0rb6hixe" path="res://scripts/window_manager.gd" id="3_dcrhm"]
 [ext_resource type="Script" uid="uid://cqyflh8uw6c38" path="res://scripts/game_timer.gd" id="4_dcrhm"]
 [ext_resource type="PackedScene" uid="uid://d251men22v2cw" path="res://scenes/components/task_bar/task_bar.tscn" id="4_ox5hf"]

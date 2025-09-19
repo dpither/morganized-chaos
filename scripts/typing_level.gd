@@ -6,15 +6,12 @@ const CURSOR_WIDTH := 1
 @export var cursor: TextCursor
 @export var typing_tasks: Array[TypingTask]
 var app_window: AppWindow
-
 var current_task_index := 0
 var level_focused := false
-# TODO: NECESSARY?
-var is_complete = false
+var is_complete = false # TODO: NECESSARY?
 
 func _ready() -> void:
 	resized.connect(on_window_resized)
-	_update_cursor()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not level_focused or is_complete:
@@ -38,7 +35,9 @@ func set_focus(is_focused: bool) -> void:
 	level_focused = is_focused
 	if is_complete:
 		return
+	
 	if is_focused:
+		call_deferred("_update_cursor")
 		cursor.show_cursor()
 	else:
 		cursor.hide_cursor()
@@ -46,6 +45,7 @@ func set_focus(is_focused: bool) -> void:
 func _handle_char(typed_char: String) -> void:
 	if current_task_index >= typing_tasks.size():
 		return
+	
 	var box: TypingTask = typing_tasks[current_task_index]
 	if box.type_next(typed_char):
 		AudioManager.play_sound(AudioManager.SOUND_TYPE.TYPED_CORRECT)
@@ -53,19 +53,18 @@ func _handle_char(typed_char: String) -> void:
 			current_task_index += 1
 			if current_task_index >= typing_tasks.size():
 				_complete()
-				return
+			else:
+				_update_cursor()
+		else:
 			_update_cursor()
-		_update_cursor()
 	else:
 		AudioManager.play_sound(AudioManager.SOUND_TYPE.TYPED_INCORRECT)
 		GameState.type_incorrect()
-		pass
 
 func _update_cursor() -> void:
 	var box: TypingTask = typing_tasks[current_task_index]
-	
 	cursor.size = Vector2(CURSOR_WIDTH * box.get_font_size() / 16, box.get_font_size())
-	cursor.position = box.get_cursor_position()
+	cursor.global_position = box.get_cursor_position()
 	cursor.show_cursor()
 
 func _complete() -> void:

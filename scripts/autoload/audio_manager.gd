@@ -6,13 +6,19 @@ enum SOUND_TYPE {
   TYPED_INCORRECT,
   LEVEL_COMPLETED
 }
+enum MUSIC_TYPE {
+  COMPUTER_HUM
+}
 
-const DEFAULT_MUSIC_VOLUME := -12.0
-const DEFAULT_SOUND_VOLUME := -12.0
+const DEFAULT_MUSIC_VOLUME := -24.0
+const DEFAULT_SOUND_VOLUME := -18.0
 
 var music_volume
 var sound_volume
 
+var _music_dict := {
+  MUSIC_TYPE.COMPUTER_HUM: preload("res://assets/audio/computer_hum.wav"),
+}
 var _sound_dict := {
   SOUND_TYPE.MOUSE_CLICKED: [preload("res://assets/audio/mouse_click.wav")],
   SOUND_TYPE.TYPED_CORRECT: [
@@ -39,6 +45,10 @@ var _sound_queue: Array[AudioStream] = []
 
 func _ready() -> void:
   process_mode = Node.PROCESS_MODE_ALWAYS
+
+  set_music_volume(DEFAULT_MUSIC_VOLUME)
+  set_sound_volume(DEFAULT_SOUND_VOLUME)
+
   for i in _num_sound_players:
     var sound_player = AudioStreamPlayer.new()
     add_child(sound_player)
@@ -46,8 +56,11 @@ func _ready() -> void:
     _sound_players.append(sound_player)
     sound_player.finished.connect(_on_sound_finished.bind(sound_player))
   
-  set_music_volume(DEFAULT_MUSIC_VOLUME)
-  set_sound_volume(DEFAULT_SOUND_VOLUME)
+  var music_player = AudioStreamPlayer.new()
+  add_child(music_player)
+  music_player.stream = _music_dict[MUSIC_TYPE.COMPUTER_HUM]
+  music_player.bus = "music"
+  music_player.play()
 
 func _process(_delta: float) -> void:
   if not _sound_queue.is_empty() and not _sound_players.is_empty():
@@ -77,4 +90,3 @@ func _set_bus_volume(bus_name: String, volume: float) -> void:
     return
 
   AudioServer.set_bus_volume_db(bus_index, volume)
-

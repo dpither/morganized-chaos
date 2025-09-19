@@ -1,13 +1,13 @@
-extends PanelContainer
 class_name LevelItem
+extends PanelContainer
 
 signal request_play(level_id: String)
 
 @export var check_box: CheckBox
 @export var title_label: Label
 @export var play_icon: TextureRect
-var _is_completed = false
 
+var _is_completed = false
 var _level_id: String
 
 func _ready() -> void:
@@ -26,12 +26,13 @@ func _ready() -> void:
 func _gui_input(event: InputEvent) -> void:
 	if _is_completed:
 		return
-
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
-				print_debug("Requesting to play " + _level_id)
-				emit_signal("request_play", _level_id)
+	
+	if event is not InputEventMouseButton:
+		return
+	
+	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		print_debug("Requesting to play " + _level_id)
+		emit_signal("request_play", _level_id)
 
 func set_level_data(level_data: LevelData) -> void:
 	title_label.text = level_data.title
@@ -50,12 +51,14 @@ func _on_level_completed(level_id: String) -> void:
 
 func _on_mouse_entered() -> void:
 	add_theme_stylebox_override("panel", get_theme_stylebox("hover", "LevelItem"))
+
 	if not _is_completed:
 		play_icon.show()
 		title_label.set("theme_override_colors/font_color", get_theme_color("font_hover_color", "LevelItem"))
 
 func _on_mouse_exited() -> void:
 	remove_theme_stylebox_override("panel")
+	
 	if not _is_completed:
 		play_icon.hide()
 		title_label.set("theme_override_colors/font_color", get_theme_color("font_color", "LevelItem"))

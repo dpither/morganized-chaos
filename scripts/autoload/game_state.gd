@@ -6,17 +6,14 @@ signal level_completed(level_id: String)
 signal typed_incorrect()
 
 const MINUTES_PER_GAME_SECOND := 1
-# TODO: OFF BY ONE??
-const MAX_SCORE = 1440
 const TYPE_INCORRECT_PENALTY := 5
+const MAX_SCORE = 1440 # TODO: OFF BY ONE??
 
 var levels: Array[LevelData] = [
 	load("res://resources/level_data/test_level.tres"),
   load("res://resources/level_data/test_level2.tres"),
 ]
-
-# MEASURED IN SECONDS (LOWER IS BETTER)
-var elapsed_time := 0
+var elapsed_time := 0 # MEASURED IN SECONDS (LOWER IS BETTER)
 var is_paused := false
 
 func _ready() -> void:
@@ -41,8 +38,10 @@ func add_time(time_added: int) -> void:
 
 func complete_level(level_id: String) -> void:
 	var level = _get_level_data(level_id)
+
 	if not level:
 		return
+
 	level.is_completed = true
 	level_completed.emit(level_id)
 
@@ -50,5 +49,6 @@ func _get_level_data(level_id: String) -> LevelData:
 	for level in levels:
 		if level.id == level_id:
 			return level
+	
 	push_warning("No level with id: " + level_id)
 	return null

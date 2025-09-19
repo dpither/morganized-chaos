@@ -1,5 +1,5 @@
-extends Control
 class_name WindowManager
+extends Control
 
 @export var taskbar: TaskBar
 var app_windows: Array[AppWindow] = []

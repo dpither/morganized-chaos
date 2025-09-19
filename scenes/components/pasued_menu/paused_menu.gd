@@ -7,6 +7,8 @@ extends Control
 
 func _ready() -> void:
   process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+  music_slider.value = AudioManager.DEFAULT_MUSIC_VOLUME
+  sound_slider.value = AudioManager.DEFAULT_SOUND_VOLUME
   music_slider.drag_ended.connect(_on_music_slider_drag_ended)
   sound_slider.drag_ended.connect(_on_sound_slider_drag_ended)
   close_button.pressed.connect(_resume)
@@ -32,7 +34,7 @@ func _on_sound_slider_drag_ended(value_changed: bool) -> void:
 func _resume() -> void:
   GameState.toggle_pause()
 
-func _on_pause_changed(is_paused: bool):
+func _on_pause_changed(is_paused: bool) -> void:
   if is_paused:
     show()
   else:

@@ -1,7 +1,8 @@
+class_name GlitchOverlay
 extends ColorRect
 
 const DEFAULT_GLITCH_DURATION := 0.3
-var glitch_timer : Timer
+var glitch_timer: Timer
 
 func _ready() -> void:
   process_mode = Node.PROCESS_MODE_ALWAYS
@@ -19,4 +20,3 @@ func _on_typed_incorrect() -> void:
 
 func _on_glitch_timer_timeout() -> void:
   material.set("shader_parameter/enabled", false)
-  

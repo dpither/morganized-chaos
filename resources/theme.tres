@@ -1,12 +1,12 @@
 [gd_resource type="Theme" load_steps=74 format=3 uid="uid://6qhtgfqfkf5l"]
 
-[ext_resource type="FontFile" uid="uid://de7bpgdsslej1" path="res://assets/ui/fonts/PixelOperator.ttf" id="2_vj6dk"]
+[ext_resource type="FontFile" uid="uid://de7bpgdsslej1" path="res://assets/fonts/PixelOperator.ttf" id="2_vj6dk"]
 [ext_resource type="Texture2D" uid="uid://oa7e0hlhxdu7" path="res://assets/ui/morganized-chaos-ui-frames.png" id="3_05tig"]
-[ext_resource type="FontFile" uid="uid://d4if4akjtlgak" path="res://assets/ui/fonts/PixelOperator-Bold.ttf" id="3_110ce"]
+[ext_resource type="FontFile" uid="uid://d4if4akjtlgak" path="res://assets/fonts/PixelOperator-Bold.ttf" id="3_110ce"]
 [ext_resource type="Texture2D" uid="uid://c1p7bx7j4sbef" path="res://assets/ui/morganized-chaos-ui-buttons.png" id="3_vj6dk"]
 [ext_resource type="Texture2D" uid="uid://dl8roqxk0fo4q" path="res://resources/icons/h_slider_grabber.tres" id="4_dhnw2"]
 [ext_resource type="Texture2D" uid="uid://ck4gxpyyuntbc" path="res://assets/ui/morganized-chaos-ui-icons.png" id="5_iojti"]
-[ext_resource type="FontFile" uid="uid://dsop3o4xmw07n" path="res://assets/ui/fonts/PixelOperatorMono.ttf" id="6_1rmny"]
+[ext_resource type="FontFile" uid="uid://dsop3o4xmw07n" path="res://assets/fonts/PixelOperatorMono.ttf" id="6_1rmny"]
 [ext_resource type="Texture2D" uid="uid://c4wfjhwbajm2m" path="res://resources/icons/maximize_icon.tres" id="6_yp2uj"]
 [ext_resource type="Texture2D" uid="uid://dyyvwcuepdsk3" path="res://resources/icons/restore_down_icon.tres" id="7_dhnw2"]
 

@@ -1,5 +1,5 @@
-extends ColorRect
 class_name TextCursor
+extends ColorRect
 
 @export var text_cursor_timer: Timer
 

@@ -28,21 +28,24 @@ func _ready() -> void:
 	minimize_button.pressed.connect(_on_minimize_pressed)
 	maximize_button.pressed.connect(_on_maximize_pressed)
 	close_button.pressed.connect(_on_close_pressed)
-	focus_requested.emit(self)
 
 func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_RIGHT:
-			focus_requested.emit(self)
+	if event is not InputEventMouseButton:
+		return
+	
+	if not event.pressed:
+		return
+	
+	if event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_RIGHT:
+		focus_requested.emit(self)
 
 func _on_title_bar_pressed(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
-				_dragging = true
-				_drag_offset = get_global_mouse_position() - global_position
-			else:
-				_dragging = false
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			_dragging = true
+			_drag_offset = get_global_mouse_position() - global_position
+		else:
+			_dragging = false
 	elif event is InputEventMouseMotion and _dragging:
 			if is_maximized:
 				return
@@ -72,6 +75,7 @@ func restore() -> void:
 
 func close() -> void:
 	hide()
+
 	if _can_close:
 		window_closed.emit(self)
 	else:
@@ -81,9 +85,10 @@ func get_app_id() -> String:
 	return _id
 
 func set_app_data(app_data: AppData) -> void:
-	_id = app_data.id
 	title.text = app_data.title
+	_id = app_data.id
 	_can_close = app_data.can_close
+	
 	if app_data.icon:
 		icon.texture = app_data.icon
 	else:

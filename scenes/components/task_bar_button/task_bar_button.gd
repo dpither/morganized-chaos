@@ -1,5 +1,5 @@
-extends Button
 class_name TaskBarButton
+extends Button
 
 func set_focus(is_focused: bool) -> void:
 	if is_focused:
