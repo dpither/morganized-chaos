@@ -7,15 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://dsufkd7hkdo7" path="res://resources/icons/close_icon.tres" id="5_wycpe"]
 
 [node name="AppWindow" type="PanelContainer" node_paths=PackedStringArray("close_button", "maximize_button", "minimize_button", "title_bar", "icon", "title", "content_root")]
+custom_minimum_size = Vector2(320, 240)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -120.0
-offset_right = 120.0
-offset_bottom = 120.0
+offset_left = -160.0
+offset_top = -112.5
+offset_right = 160.0
+offset_bottom = 112.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1

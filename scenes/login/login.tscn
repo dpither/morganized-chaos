@@ -1,0 +1,142 @@
+[gd_scene load_steps=17 format=3 uid="uid://doir0nugrh8u1"]
+
+[ext_resource type="Script" uid="uid://5okjyrr07ech" path="res://scenes/login/login.gd" id="1_kmql7"]
+[ext_resource type="PackedScene" uid="uid://dcudccp2o1nrt" path="res://scenes/desktop.tscn" id="2_d1mgv"]
+[ext_resource type="Script" uid="uid://cbn7k7mpx0f3" path="res://scripts/computer_screen.gd" id="2_ructg"]
+[ext_resource type="Texture2D" uid="uid://dyio7na2w1mr2" path="res://assets/ui/checker.png" id="3_d1mgv"]
+[ext_resource type="Texture2D" uid="uid://20hjj8515y62" path="res://assets/ui/morganized-chaos-profile.png" id="4_ap5ty"]
+[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="5_rptua"]
+[ext_resource type="FontFile" uid="uid://d4if4akjtlgak" path="res://assets/fonts/PixelOperator-Bold.ttf" id="6_2n0ky"]
+[ext_resource type="FontFile" uid="uid://dsop3o4xmw07n" path="res://assets/fonts/PixelOperatorMono.ttf" id="7_w24fr"]
+[ext_resource type="Script" uid="uid://5aibdinbde5l" path="res://scripts/typing_task.gd" id="8_mqbfv"]
+[ext_resource type="PackedScene" uid="uid://b63cxer3mthoq" path="res://scenes/components/text_cursor/text_cursor.tscn" id="9_1md81"]
+[ext_resource type="Shader" uid="uid://bey6wjqmfvtfq" path="res://shaders/glitch-effect.gdshader" id="10_d11ks"]
+[ext_resource type="Script" uid="uid://m340exx6kg8l" path="res://scripts/glitch_overlay.gd" id="11_5h4wf"]
+[ext_resource type="PackedScene" uid="uid://ctg4fcgnyxxac" path="res://scenes/components/pasued_menu/paused_menu.tscn" id="12_bfpwb"]
+
+[sub_resource type="FontVariation" id="FontVariation_47vyr"]
+base_font = ExtResource("6_2n0ky")
+spacing_top = -1
+spacing_bottom = 1
+
+[sub_resource type="FontVariation" id="FontVariation_31byv"]
+base_font = ExtResource("7_w24fr")
+spacing_top = -1
+spacing_bottom = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wlyqo"]
+shader = ExtResource("10_d11ks")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 10.0
+shader_parameter/shake_block_size = 30.0
+shader_parameter/shake_color_rate = 0.0
+shader_parameter/enabled = false
+
+[node name="Login" type="Control" node_paths=PackedStringArray("cursor", "password_task", "glitch_overlay")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kmql7")
+cursor = NodePath("TextCursor")
+password_task = NodePath("VBoxContainer/PasswordContainer/MarginContainer/PasswordTask")
+glitch_overlay = NodePath("GlitchOverlay")
+desktop_scene = ExtResource("2_d1mgv")
+
+[node name="Screen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_ructg")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.537255, 0.635294, 0.341176, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_top = 60.0
+offset_right = 90.0
+grow_horizontal = 2
+theme_override_constants/separation = 8
+
+[node name="UserIcon" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_ap5ty")
+
+[node name="UserName" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_rptua")
+theme_override_colors/font_color = Color(0.933333, 1, 0.8, 1)
+theme_override_fonts/font = SubResource("FontVariation_47vyr")
+theme_override_font_sizes/font_size = 32
+text = "Morgan"
+horizontal_alignment = 1
+
+[node name="PasswordContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(180, 21)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("5_rptua")
+theme_type_variation = &"Inset1"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PasswordContainer"]
+visible = false
+modulate = Color(1, 1, 1, 0.498039)
+layout_mode = 2
+texture = ExtResource("3_d1mgv")
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PasswordContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="PasswordTask" type="RichTextLabel" parent="VBoxContainer/PasswordContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("5_rptua")
+theme_override_fonts/normal_font = SubResource("FontVariation_31byv")
+text = "HealthyGameJam2025"
+fit_content = true
+script = ExtResource("8_mqbfv")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.301961, 0.501961, 0.380392, 1)
+hide_typed = true
+
+[node name="TextCursor" parent="." instance=ExtResource("9_1md81")]
+visible = true
+layout_mode = 0
+offset_bottom = 13.0
+
+[node name="GlitchOverlay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wlyqo")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("11_5h4wf")
+
+[node name="PausedMenu" parent="." instance=ExtResource("12_bfpwb")]
+layout_mode = 1

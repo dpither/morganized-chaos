@@ -5,6 +5,7 @@ const CURSOR_WIDTH := 1
 @export var cursor: TextCursor
 @export var password_task: TypingTask
 @export var glitch_overlay: GlitchOverlay
+@export var desktop_scene: PackedScene
 var is_complete = false
 
 func _ready() -> void:
@@ -46,3 +47,5 @@ func _login() -> void:
   cursor.hide_cursor()
   AudioManager.play_sound(AudioManager.SOUND_TYPE.LEVEL_COMPLETED)
   # TODO: Switch to desktop
+  get_tree().change_scene_to_packed(desktop_scene)
+  

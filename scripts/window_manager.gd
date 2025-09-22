@@ -13,6 +13,7 @@ func open_window(app_id: String) -> void:
 	for app_window in app_windows:
 		if app_window.get_app_id() == app_id:
 			call_deferred("_focus_window", app_window)
+			taskbar.on_app_window_spawned(app_window)	
 			return
 	
 	var app_window = AppFactory.get_app_window(app_id)
@@ -24,9 +25,8 @@ func open_window(app_id: String) -> void:
 	call_deferred("_focus_window", app_window)
 
 func _on_app_window_closed(app_window: AppWindow) -> void:
-	if app_window in app_windows:
-		app_windows.erase(app_window)
-	app_window.queue_free()
+	# if app_window in app_windows:
+	# 	app_windows.erase(app_window)
 	taskbar.on_app_window_closed(app_window)
 
 func _on_app_window_minimized(app_window: AppWindow) -> void:
@@ -42,6 +42,7 @@ func _connect_window_signals(app_window: AppWindow) -> void:
 
 func _focus_window(app_window: AppWindow) -> void:
 	active_window = app_window
+	app_window.show()
 	taskbar.on_app_window_focused(app_window)
 	for child: AppWindow in get_children():
 		child.set_focus(child == app_window)

@@ -5,9 +5,13 @@
 
 [resource]
 script = ExtResource("2_ub6le")
-is_completed = false
+is_completed = true
+mistake_multiplier = 1
+level_name = "completed test level"
+accuracy = 67.67
+duration = 6767
 id = "test_level_2"
-title = "Dummy Level 2"
+title = "Completed"
 content = ExtResource("1_mufu2")
 can_close = true
 metadata/_custom_type_script = "uid://o8lg02lx7xge"

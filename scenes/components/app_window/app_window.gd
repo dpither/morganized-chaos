@@ -75,7 +75,6 @@ func restore() -> void:
 
 func close() -> void:
 	hide()
-
 	if _can_close:
 		window_closed.emit(self)
 	else:

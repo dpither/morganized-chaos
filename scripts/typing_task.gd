@@ -3,7 +3,9 @@ extends RichTextLabel
 
 @export var typed_color: Color
 @export var not_typed_color: Color
+@export var highlight_color: Color
 @export var hide_typed := false
+@export var highlight := false
 var typed_count := 0
 var raw_text := ""
 
@@ -36,6 +38,8 @@ func get_cursor_position() -> Vector2:
 	var line_start_index = get_line_range(line).x
 	var line_text = raw_text.substr(line_start_index, typed_count - line_start_index)
 	var x_offset = font.get_string_size(line_text, HORIZONTAL_ALIGNMENT_LEFT, -1, get_font_size()).x
+	if line_start_index != typed_count:
+		x_offset -= 1
 	return global_position + Vector2(x_offset, y_offset)
 
 func _update_task() -> void:
@@ -48,9 +52,13 @@ func _update_task() -> void:
 	
 	var not_typed_text = raw_text.substr(typed_count)
 	clear()
+	if highlight:
+		push_bgcolor(highlight_color)
 	push_color(typed_color)
 	add_text(typed_text)
 	pop()
 	push_color(not_typed_color)
 	add_text(not_typed_text)
 	pop()
+	if highlight:
+		pop()

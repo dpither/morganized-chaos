@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=4 format=3 uid="uid://dijty512rpl0h"]
+
+[ext_resource type="Script" uid="uid://o8lg02lx7xge" path="res://scripts/level_data.gd" id="1_7nb1o"]
+[ext_resource type="Texture2D" uid="uid://cbbeg3xqbugg8" path="res://resources/icons/notepad_file_icon.tres" id="1_he83b"]
+[ext_resource type="PackedScene" uid="uid://86bb58pmap1b" path="res://scenes/app_content/brainstom.tscn" id="1_wbdtd"]
+
+[resource]
+script = ExtResource("1_7nb1o")
+is_completed = false
+mistake_multiplier = 1
+level_name = "Brainstorm game ideas"
+id = "brainstorm"
+title = "Brainstorm"
+icon = ExtResource("1_he83b")
+content = ExtResource("1_wbdtd")
+can_close = true
+metadata/_custom_type_script = "uid://o8lg02lx7xge"

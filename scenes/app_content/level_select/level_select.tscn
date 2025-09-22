@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://5t0yvgxwcpbo"]
+[gd_scene load_steps=6 format=3 uid="uid://5t0yvgxwcpbo"]
 
 [ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_uhf0v"]
 [ext_resource type="Script" uid="uid://4x0tnf1hcjor" path="res://scenes/app_content/level_select/level_select.gd" id="2_3f0pr"]
 [ext_resource type="PackedScene" uid="uid://b4j4fg8eumo16" path="res://scenes/components/level_item/level_item.tscn" id="3_uy2b1"]
+[ext_resource type="Texture2D" uid="uid://dhhdgbe8uvloe" path="res://resources/icons/accuracy_icon.tres" id="4_8qydx"]
+[ext_resource type="Texture2D" uid="uid://dliphcco1duiy" path="res://resources/icons/duration_icon.tres" id="4_mh35m"]
 
 [node name="LevelSelector" type="Control" node_paths=PackedStringArray("scroll_container", "level_container")]
 layout_mode = 3
@@ -16,32 +18,69 @@ size_flags_vertical = 4
 mouse_filter = 1
 theme = ExtResource("1_uhf0v")
 script = ExtResource("2_3f0pr")
-scroll_container = NodePath("Background/ScrollContainer")
-level_container = NodePath("Background/ScrollContainer/MarginContainer/LevelContainer")
+scroll_container = NodePath("VBoxContainer/Background/ScrollContainer")
+level_container = NodePath("VBoxContainer/Background/ScrollContainer/MarginContainer/LevelContainer")
 level_item_scene = ExtResource("3_uy2b1")
 
-[node name="Background" type="PanelContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainerL" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="File" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainerL"]
+layout_mode = 2
+theme = ExtResource("1_uhf0v")
+text = "Game Jam Day 1 Goals"
+
+[node name="HBoxContainerR" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+modulate = Color(0.0156863, 0.0470588, 0.0235294, 1)
+layout_mode = 2
+theme_override_constants/separation = 28
+alignment = 2
+
+[node name="AccuracyIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainerR"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_8qydx")
+
+[node name="DurationIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainerR"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_uhf0v")
+theme_type_variation = &"TitleBarButton"
+texture = ExtResource("4_mh35m")
+
+[node name="Background" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 2
 theme_type_variation = &"Inset2"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Background"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Background"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_uhf0v")
 scroll_vertical_custom_step = 15.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Background/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Background/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="LevelContainer" type="VBoxContainer" parent="Background/ScrollContainer/MarginContainer"]
+[node name="LevelContainer" type="VBoxContainer" parent="VBoxContainer/Background/ScrollContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2

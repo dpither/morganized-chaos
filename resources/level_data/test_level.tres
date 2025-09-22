@@ -7,6 +7,8 @@
 [resource]
 script = ExtResource("2_pnasu")
 is_completed = false
+mistake_multiplier = 10
+level_name = "dummy level 10x mistake"
 id = "test_level_1"
 title = "Dummy Level 1"
 icon = ExtResource("2_yq83c")
