@@ -2,6 +2,7 @@ extends Node
 
 var apps: Array[AppData] = [
   load("res://resources/app_data/level_select.tres"),
+  load("res://resources/app_data/game_over.tres")
 ]
 var app_window_scene: PackedScene = preload("res://scenes/components/app_window/app_window.tscn")
 

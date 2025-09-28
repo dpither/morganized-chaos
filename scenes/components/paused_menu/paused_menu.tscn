@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctg4fcgnyxxac"]
+[gd_scene load_steps=9 format=3 uid="uid://ctg4fcgnyxxac"]
 
 [ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_7d57n"]
-[ext_resource type="Script" uid="uid://3g8ukcfelsgr" path="res://scenes/components/pasued_menu/paused_menu.gd" id="1_uh7s2"]
+[ext_resource type="Script" uid="uid://3g8ukcfelsgr" path="res://scenes/components/paused_menu/paused_menu.gd" id="1_uh7s2"]
+[ext_resource type="Texture2D" uid="uid://mp34qi4n17xy" path="res://resources/icons/pause_icon.tres" id="3_6myjf"]
 [ext_resource type="Texture2D" uid="uid://b7f42v74im18e" path="res://resources/icons/mute_icon.tres" id="3_tj8i1"]
 [ext_resource type="Texture2D" uid="uid://dsufkd7hkdo7" path="res://resources/icons/close_icon.tres" id="4_uh7s2"]
 [ext_resource type="Texture2D" uid="uid://blpmeyg276tar" path="res://resources/icons/volume_icon.tres" id="4_ws1ea"]
@@ -12,7 +13,6 @@ atlas = ExtResource("5_m7lra")
 region = Rect2(40, 107, 16, 6)
 
 [node name="PausedMenu" type="Control" node_paths=PackedStringArray("music_slider", "sound_slider", "resume_button", "close_button")]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,12 +67,17 @@ layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 2
 theme_type_variation = &"TitleBar"
+theme_override_constants/separation = 2
+
+[node name="Icon" type="TextureRect" parent="MenuPanel/VBoxContainer/Titlebar/Title"]
+layout_mode = 2
+texture = ExtResource("3_6myjf")
 
 [node name="Title" type="Label" parent="MenuPanel/VBoxContainer/Titlebar/Title"]
 layout_mode = 2
 theme = ExtResource("1_7d57n")
 theme_type_variation = &"TitleBar"
-text = "GAME PAUSED"
+text = "Game Paused"
 
 [node name="ControlButtons" type="HBoxContainer" parent="MenuPanel/VBoxContainer/Titlebar"]
 layout_mode = 2
@@ -131,6 +136,7 @@ text = "Music"
 
 [node name="Mute" type="TextureRect" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MusicSliderContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("3_tj8i1")
 
@@ -148,6 +154,7 @@ ticks_on_borders = true
 
 [node name="Volume" type="TextureRect" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MusicSliderContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("4_ws1ea")
 
@@ -166,6 +173,7 @@ text = "Sound"
 
 [node name="Mute" type="TextureRect" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/SoundSliderContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("3_tj8i1")
 
@@ -183,6 +191,7 @@ ticks_on_borders = true
 
 [node name="Volume" type="TextureRect" parent="MenuPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/SoundSliderContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("4_ws1ea")
 

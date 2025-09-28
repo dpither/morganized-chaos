@@ -7,13 +7,14 @@ var active_window: AppWindow
 
 func _ready() -> void:
 	open_window("level_select")
+	GameState.game_over.connect(open_window.bind("game_over"))
 
 func open_window(app_id: String) -> void:
 	# If window exists just focus it
 	for app_window in app_windows:
 		if app_window.get_app_id() == app_id:
 			call_deferred("_focus_window", app_window)
-			taskbar.on_app_window_spawned(app_window)	
+			taskbar.on_app_window_spawned(app_window)
 			return
 	
 	var app_window = AppFactory.get_app_window(app_id)
@@ -25,8 +26,6 @@ func open_window(app_id: String) -> void:
 	call_deferred("_focus_window", app_window)
 
 func _on_app_window_closed(app_window: AppWindow) -> void:
-	# if app_window in app_windows:
-	# 	app_windows.erase(app_window)
 	taskbar.on_app_window_closed(app_window)
 
 func _on_app_window_minimized(app_window: AppWindow) -> void:

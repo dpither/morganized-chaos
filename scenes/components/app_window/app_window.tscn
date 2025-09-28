@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://to3y1jnu3cyi"]
+[gd_scene load_steps=7 format=3 uid="uid://to3y1jnu3cyi"]
 
 [ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_dej2g"]
 [ext_resource type="Script" uid="uid://s6j0r6t43hdn" path="res://scenes/components/app_window/app_window.gd" id="2_bwdwl"]
 [ext_resource type="Texture2D" uid="uid://cw2cjyy3o268k" path="res://resources/icons/minimize_icon.tres" id="3_bwdwl"]
+[ext_resource type="Texture2D" uid="uid://b372ujqh2mmi0" path="res://icon.svg" id="3_sb7m4"]
 [ext_resource type="Texture2D" uid="uid://c4wfjhwbajm2m" path="res://resources/icons/maximize_icon.tres" id="4_wycpe"]
 [ext_resource type="Texture2D" uid="uid://dsufkd7hkdo7" path="res://resources/icons/close_icon.tres" id="5_wycpe"]
 
@@ -14,9 +15,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -160.0
-offset_top = -112.5
+offset_top = -120.0
 offset_right = 160.0
-offset_bottom = 112.5
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -46,16 +47,19 @@ layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 2
 theme_type_variation = &"TitleBar"
+theme_override_constants/separation = 2
 
 [node name="Icon" type="TextureRect" parent="VBoxContainer/Titlebar/Title"]
 layout_mode = 2
 mouse_filter = 2
+texture = ExtResource("3_sb7m4")
 expand_mode = 2
 
 [node name="Title" type="Label" parent="VBoxContainer/Titlebar/Title"]
 layout_mode = 2
 theme = ExtResource("1_dej2g")
 theme_type_variation = &"TitleBar"
+text = "Placeholder Title"
 
 [node name="ControlButtons" type="HBoxContainer" parent="VBoxContainer/Titlebar"]
 layout_mode = 2

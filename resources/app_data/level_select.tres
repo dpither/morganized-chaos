@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("3_athf1")
 id = "level_select"
-title = "TODO"
+title = "To-Do"
 icon = ExtResource("2_pmt53")
 content = ExtResource("1_2agvd")
 can_close = false

@@ -1,0 +1,200 @@
+[gd_scene load_steps=11 format=3 uid="uid://bl0tbstk5l4dq"]
+
+[ext_resource type="Script" uid="uid://cur5nr1s86fin" path="res://scenes/app_content/game_over/game_over.gd" id="1_el2h8"]
+[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="2_flp80"]
+[ext_resource type="Texture2D" uid="uid://dyio7na2w1mr2" path="res://assets/ui/checker.png" id="3_4prye"]
+[ext_resource type="FontFile" uid="uid://d4if4akjtlgak" path="res://assets/fonts/PixelOperator-Bold.ttf" id="3_clv25"]
+[ext_resource type="Texture2D" uid="uid://ccvsoiu3lgo0m" path="res://resources/icons/check_icon.tres" id="4_hctfk"]
+[ext_resource type="Texture2D" uid="uid://dhhdgbe8uvloe" path="res://resources/icons/accuracy_icon.tres" id="4_ryhro"]
+[ext_resource type="Texture2D" uid="uid://dliphcco1duiy" path="res://resources/icons/duration_icon.tres" id="5_cw5wo"]
+[ext_resource type="Texture2D" uid="uid://oa7e0hlhxdu7" path="res://assets/ui/morganized-chaos-ui-frames.png" id="6_ott25"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ws1ea"]
+atlas = ExtResource("6_ott25")
+region = Rect2(40, 111, 16, 2)
+
+[sub_resource type="FontVariation" id="FontVariation_clv25"]
+base_font = ExtResource("3_clv25")
+spacing_glyph = -1
+spacing_top = -1
+spacing_bottom = 1
+
+[node name="GameOver" type="Control" node_paths=PackedStringArray("retry_button", "logout_button", "info_label", "tasks_complete_label", "duration_label", "accuracy_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_el2h8")
+retry_button = NodePath("ContentMargin/ContentContainer/NavButtonContainer/Retry")
+logout_button = NodePath("ContentMargin/ContentContainer/NavButtonContainer/Logout")
+info_label = NodePath("ContentMargin/ContentContainer/Info")
+tasks_complete_label = NodePath("ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer/GridMargin/Grid/TasksCompleteVal")
+duration_label = NodePath("ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer/GridMargin/Grid/DurationVal")
+accuracy_label = NodePath("ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer/GridMargin/Grid/AccuracyVal")
+
+[node name="ContentMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="ContentContainer" type="VBoxContainer" parent="ContentMargin"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Info" type="Label" parent="ContentMargin/ContentContainer"]
+layout_mode = 2
+theme = ExtResource("2_flp80")
+text = "Something about task completion
+Kind message:)"
+
+[node name="Divider1" type="TextureRect" parent="ContentMargin/ContentContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_ws1ea")
+
+[node name="StatsPanel" type="PanelContainer" parent="ContentMargin/ContentContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_flp80")
+theme_type_variation = &"Inset1"
+
+[node name="StatsMargin" type="MarginContainer" parent="ContentMargin/ContentContainer/StatsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 1
+
+[node name="StatsContainer" type="VBoxContainer" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="StatsTitle" type="Label" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_clv25")
+text = "Today's Stats"
+
+[node name="GridMargin" type="MarginContainer" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+
+[node name="Grid" type="GridContainer" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer/GridMargin"]
+layout_mode = 2
+theme_override_constants/h_separation = 3
+columns = 3
+
+[node name="TasksCompleteIcon" type="TextureRect" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer/GridMargin/Grid"]
+self_modulate = Color(0.0156863, 0.0470588, 0.0235294, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_hctfk")
+
+[node name="TasksComplete" type="Label" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer/GridMargin/Grid"]
+layout_mode = 2
+text = "Tasks complete:"
+
+[node name="TasksCompleteVal" type="Label" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer/GridMargin/Grid"]
+layout_mode = 2
+text = "6/7"
+
+[node name="DurationIcon" type="TextureRect" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer/GridMargin/Grid"]
+self_modulate = Color(0.0156863, 0.0470588, 0.0235294, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_cw5wo")
+
+[node name="Duration" type="Label" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer/GridMargin/Grid"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Duration:"
+
+[node name="DurationVal" type="Label" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer/GridMargin/Grid"]
+layout_mode = 2
+text = "67:67"
+
+[node name="AccuracyIcon" type="TextureRect" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer/GridMargin/Grid"]
+self_modulate = Color(0.0156863, 0.0470588, 0.0235294, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_ryhro")
+
+[node name="Accuracy" type="Label" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer/GridMargin/Grid"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Accuracy:"
+
+[node name="AccuracyVal" type="Label" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer/GridMargin/Grid"]
+layout_mode = 2
+text = "67.6%"
+
+[node name="TasksCompleteContainer" type="HBoxContainer" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="AccuracyContainer" type="HBoxContainer" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="DurationContainer" type="HBoxContainer" parent="ContentMargin/ContentContainer/StatsPanel/StatsMargin/StatsContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Label" type="Label" parent="ContentMargin/ContentContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_flp80")
+theme_override_colors/font_color = Color(0.188235, 0.364706, 0.258824, 1)
+text = "Thanks for playing Morganized Chaos!"
+
+[node name="Divider2" type="TextureRect" parent="ContentMargin/ContentContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_ws1ea")
+
+[node name="NavButtonContainer" type="HBoxContainer" parent="ContentMargin/ContentContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Retry" type="Button" parent="ContentMargin/ContentContainer/NavButtonContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+theme = ExtResource("2_flp80")
+text = "Retry"
+
+[node name="Logout" type="Button" parent="ContentMargin/ContentContainer/NavButtonContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_flp80")
+text = "Logout"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.0666667)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4prye")
+stretch_mode = 1

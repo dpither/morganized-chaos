@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b63cxer3mthoq" path="res://scenes/components/text_cursor/text_cursor.tscn" id="9_1md81"]
 [ext_resource type="Shader" uid="uid://bey6wjqmfvtfq" path="res://shaders/glitch-effect.gdshader" id="10_d11ks"]
 [ext_resource type="Script" uid="uid://m340exx6kg8l" path="res://scripts/glitch_overlay.gd" id="11_5h4wf"]
-[ext_resource type="PackedScene" uid="uid://ctg4fcgnyxxac" path="res://scenes/components/pasued_menu/paused_menu.tscn" id="12_bfpwb"]
+[ext_resource type="PackedScene" uid="uid://ctg4fcgnyxxac" path="res://scenes/components/paused_menu/paused_menu.tscn" id="12_bfpwb"]
 
 [sub_resource type="FontVariation" id="FontVariation_47vyr"]
 base_font = ExtResource("6_2n0ky")
@@ -139,4 +139,5 @@ color = Color(1, 1, 1, 0)
 script = ExtResource("11_5h4wf")
 
 [node name="PausedMenu" parent="." instance=ExtResource("12_bfpwb")]
+visible = false
 layout_mode = 1

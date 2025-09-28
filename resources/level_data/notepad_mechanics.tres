@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LevelData" load_steps=4 format=3 uid="uid://dhnn0rtd4yykl"]
 
 [ext_resource type="Script" uid="uid://o8lg02lx7xge" path="res://scripts/level_data.gd" id="1_bwl8p"]
-[ext_resource type="PackedScene" uid="uid://c8eq5mguk6h02" path="res://scenes/app_content/mechanics.tscn" id="1_hg35h"]
+[ext_resource type="PackedScene" uid="uid://c8eq5mguk6h02" path="res://scenes/app_content/notepad_mechanics.tscn" id="1_hg35h"]
 [ext_resource type="Texture2D" uid="uid://cbbeg3xqbugg8" path="res://resources/icons/notepad_file_icon.tres" id="2_8o4b6"]
 
 [resource]
@@ -9,7 +9,9 @@ script = ExtResource("1_bwl8p")
 is_completed = false
 mistake_multiplier = 1
 level_name = "Figure out mechanics"
-id = "mechanics"
+accuracy = 0.0
+duration = 0
+id = "notepad_mechanics"
 title = "Mechanics"
 icon = ExtResource("2_8o4b6")
 content = ExtResource("1_hg35h")

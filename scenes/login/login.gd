@@ -46,6 +46,5 @@ func _login() -> void:
   is_complete = true
   cursor.hide_cursor()
   AudioManager.play_sound(AudioManager.SOUND_TYPE.LEVEL_COMPLETED)
-  # TODO: Switch to desktop
   get_tree().change_scene_to_packed(desktop_scene)
   

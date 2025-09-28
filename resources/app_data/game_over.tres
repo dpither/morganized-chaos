@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AppData" load_steps=4 format=3 uid="uid://bayaafk0ojwcd"]
+
+[ext_resource type="PackedScene" uid="uid://bl0tbstk5l4dq" path="res://scenes/app_content/game_over/game_over.tscn" id="1_3aijh"]
+[ext_resource type="Script" uid="uid://dlwyfasp4f1ur" path="res://scripts/app_data.gd" id="1_74474"]
+[ext_resource type="Texture2D" uid="uid://ynobr4i7apwp" path="res://resources/icons/trophy_icon.tres" id="1_g45ks"]
+
+[resource]
+script = ExtResource("1_74474")
+id = "game_over"
+title = "Daily Recap"
+icon = ExtResource("1_g45ks")
+content = ExtResource("1_3aijh")
+can_close = false
+metadata/_custom_type_script = "uid://dlwyfasp4f1ur"

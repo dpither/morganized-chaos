@@ -6,7 +6,7 @@ const CURSOR_WIDTH := 1
 @export var cursor: TextCursor
 @export var typing_tasks: Array[TypingTask]
 @export var level_focused := false
-@export var scroll_container : ScrollContainer
+@export var scroll_container: ScrollContainer
 var app_window: AppWindow
 var current_task_index := 0
 var num_correct = 0
@@ -71,12 +71,9 @@ func _handle_char(typed_char: String) -> void:
 			current_task_index += 1
 			if current_task_index >= typing_tasks.size():
 				_complete()
-			else:
-				_update_cursor()
-				cursor.show_cursor()
-		else:
-			_update_cursor()
-			cursor.show_cursor()
+				return
+		_update_cursor()
+		cursor.show_cursor()
 	# Typed incorrect
 	else:
 		AudioManager.play_sound(AudioManager.SOUND_TYPE.TYPED_INCORRECT)
@@ -92,17 +89,19 @@ func _update_cursor() -> void:
 	var task: TypingTask = typing_tasks[current_task_index]
 	var scale_factor = task.get_font_size() / 16
 	cursor.color = task.typed_color
-	cursor.size = Vector2(CURSOR_WIDTH * scale_factor, task.get_font_size() - (scale_factor) *3)
-	cursor.global_position = task.get_cursor_position() + Vector2(0, 1+(scale_factor-1)*2)
+	cursor.size = Vector2(CURSOR_WIDTH * scale_factor, task.get_font_size() - (scale_factor) * 3)
+	cursor.global_position = task.get_cursor_position() + Vector2(0, 1 + (scale_factor - 1) * 2)
 
 func _complete() -> void:
 	is_complete = true
 	cursor.hide_cursor()
 	app_window.close()
 	AudioManager.play_sound(AudioManager.SOUND_TYPE.LEVEL_COMPLETED)
-	GameState.complete_level(app_window.get_app_id(), (float(num_correct)/num_typed)*100, GameState.elapsed_time-start_time)
+	GameState.complete_level(app_window.get_app_id(), (float(num_correct) / num_typed) * 100, GameState.elapsed_time - start_time)
 
 func _scroll_to_cursor():
+	var task: TypingTask = typing_tasks[current_task_index]
+	var scale_factor = task.get_font_size() / 16
 	var cursor_y = cursor.global_position.y
 	var cursor_height = cursor.size.y
 	var scroll_y = scroll_container.global_position.y
@@ -110,11 +109,13 @@ func _scroll_to_cursor():
 
 	var scroll_val = scroll_container.scroll_vertical
 
+	# Need to scroll up
 	if cursor_y < scroll_y:
-			scroll_container.scroll_vertical = int(scroll_val - (scroll_y - cursor_y))
+			scroll_container.scroll_vertical = int(scroll_val - (scroll_y - cursor_y)) - (scale_factor * 3 - 2)
 
+	# Need to scroll down
 	elif cursor_y + cursor_height > scroll_y + view_height:
-			scroll_container.scroll_vertical = int(scroll_val + ((cursor_y + cursor_height) - (scroll_y + view_height)))
+			scroll_container.scroll_vertical = int(scroll_val + ((cursor_y + cursor_height) - (scroll_y + view_height))) + (scale_factor * 6 - 5)
 
 func _on_scrollbar_gui_input(event: InputEvent) -> void:
 	if event is not InputEventMouseButton:

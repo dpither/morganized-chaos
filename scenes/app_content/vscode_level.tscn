@@ -1,0 +1,765 @@
+[gd_scene load_steps=8 format=3 uid="uid://ck5bdvw84ektl"]
+
+[ext_resource type="Script" uid="uid://caag1336ex0vw" path="res://scripts/typing_level.gd" id="1_gsmdv"]
+[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="2_e3agf"]
+[ext_resource type="FontFile" uid="uid://dsop3o4xmw07n" path="res://assets/fonts/PixelOperatorMono.ttf" id="4_e3agf"]
+[ext_resource type="Script" uid="uid://5aibdinbde5l" path="res://scripts/typing_task.gd" id="4_krnxt"]
+[ext_resource type="PackedScene" uid="uid://b63cxer3mthoq" path="res://scenes/components/text_cursor/text_cursor.tscn" id="5_itnlv"]
+
+[sub_resource type="FontVariation" id="FontVariation_ayg3k"]
+base_font = ExtResource("4_e3agf")
+spacing_glyph = -2
+spacing_top = -1
+spacing_bottom = 1
+
+[sub_resource type="FontVariation" id="FontVariation_krnxt"]
+base_font = ExtResource("4_e3agf")
+spacing_glyph = -1
+spacing_top = -1
+spacing_bottom = 1
+
+[node name="VSCodeLevel" type="Control" node_paths=PackedStringArray("cursor", "typing_tasks", "scroll_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_gsmdv")
+cursor = NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/TextCursor")
+typing_tasks = [NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer1/Task 1"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer2/Task 2"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer4/Task 3"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer5/Task 4"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer6/Task 5"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer7/Task 6"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer8/Task 7"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer9/Task 8"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer10/Task 9"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer11/Task 10"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer13/Task 11"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer14/Task 12"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer15/Task 13"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer16/Task 14"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer22/Task 20"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer23/Task 21"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer17/Task 15"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer18/Task 16"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer19/Task 17"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer20/Task 18"), NodePath("VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer21/Task 19")]
+scroll_container = NodePath("VBoxContainer/PanelContainer/ScrollContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 2
+
+[node name="Navbar" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="File" type="Label" parent="VBoxContainer/MarginContainer/Navbar"]
+layout_mode = 2
+theme = ExtResource("2_e3agf")
+text = "File"
+
+[node name="Edit" type="Label" parent="VBoxContainer/MarginContainer/Navbar"]
+layout_mode = 2
+theme = ExtResource("2_e3agf")
+text = "Edit"
+
+[node name="Selection" type="Label" parent="VBoxContainer/MarginContainer/Navbar"]
+layout_mode = 2
+theme = ExtResource("2_e3agf")
+text = "Selection"
+
+[node name="View" type="Label" parent="VBoxContainer/MarginContainer/Navbar"]
+layout_mode = 2
+theme = ExtResource("2_e3agf")
+text = "View"
+
+[node name="Go" type="Label" parent="VBoxContainer/MarginContainer/Navbar"]
+layout_mode = 2
+theme = ExtResource("2_e3agf")
+text = "Go"
+
+[node name="Run" type="Label" parent="VBoxContainer/MarginContainer/Navbar"]
+layout_mode = 2
+theme = ExtResource("2_e3agf")
+text = "Run"
+
+[node name="Terminal" type="Label" parent="VBoxContainer/MarginContainer/Navbar"]
+layout_mode = 2
+theme = ExtResource("2_e3agf")
+text = "Terminal"
+
+[node name="Help" type="Label" parent="VBoxContainer/MarginContainer/Navbar"]
+layout_mode = 2
+theme = ExtResource("2_e3agf")
+text = "Help"
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_type_variation = &"Inset2"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+scroll_horizontal_custom_step = 16.0
+scroll_vertical_custom_step = 16.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_right = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Breadcrumb" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+text = "scripts > level.gd"
+
+[node name="LineContainer1" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer1"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "1"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer1"]
+visible = false
+layout_mode = 2
+
+[node name="Task 1" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer1"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "@export var tasks = []"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer2"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "2"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer2"]
+visible = false
+layout_mode = 2
+
+[node name="Task 2" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "var current_index = 0"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer3" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer3"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "3"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer3"]
+layout_mode = 2
+
+[node name="LineContainer4" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer4"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "4"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer4"]
+visible = false
+layout_mode = 2
+
+[node name="Task 3" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "func _unhandled_input(event) -> void:"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer5" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer5"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "5"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer5"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Task 4" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "if event is not InputEventKey:"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer6" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer6"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "6"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer6"]
+custom_minimum_size = Vector2(17, 0)
+layout_mode = 2
+
+[node name="Task 5" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "return"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer7" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer7"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "7"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer7"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Task 6" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "if not event.pressed:"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer8" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer8"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "8"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer8"]
+custom_minimum_size = Vector2(17, 0)
+layout_mode = 2
+
+[node name="Task 7" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "return"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer9" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer9"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "9"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer9"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Task 8" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "if is_keycode_unicode(event.keycode):"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer10" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer10"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "10"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer10"]
+custom_minimum_size = Vector2(17, 0)
+layout_mode = 2
+
+[node name="Task 9" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "var typed_char = String.chr(event.unicode)"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer11" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer11"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "11"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer11"]
+custom_minimum_size = Vector2(17, 0)
+layout_mode = 2
+
+[node name="Task 10" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "_handle_char(typed_char)"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer12" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer12"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "12"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer12"]
+visible = false
+layout_mode = 2
+
+[node name="LineContainer13" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer13"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "13"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer13"]
+visible = false
+layout_mode = 2
+
+[node name="Task 11" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "func _handle_char(typed_char) -> void:"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer14" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer14"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "14"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer14"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Task 12" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "var task = tasks[current_index]"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer15" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer15"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "15"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer15"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Task 13" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer15"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "if task.type_next(typed_char):"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer16" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer16"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "16"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer16"]
+custom_minimum_size = Vector2(17, 0)
+layout_mode = 2
+
+[node name="Task 14" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer16"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "play_sound(TYPED_CORRECT)"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer17" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer17"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "17"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer17"]
+custom_minimum_size = Vector2(17, 0)
+layout_mode = 2
+
+[node name="Task 15" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer17"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "if task.is_complete():"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer18" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer18"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "18"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer18"]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+
+[node name="Task 16" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer18"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "current_index += 1"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer19" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer19"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "19"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer19"]
+custom_minimum_size = Vector2(31, 0)
+layout_mode = 2
+
+[node name="Task 17" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer19"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "if current_index >= task.size():"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer20" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer20"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "20"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer20"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+
+[node name="Task 18" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer20"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "play_sound(LEVEL_COMPLETE)"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer21" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer21"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "21"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer21"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+
+[node name="Task 19" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer21"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "complete_level()"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer22" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer22"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "22"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer22"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Task 20" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer22"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "else:"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="LineContainer23" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineNumber" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer23"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_e3agf")
+theme_override_colors/font_color = Color(0.117647, 0.227451, 0.160784, 1)
+theme_override_fonts/font = SubResource("FontVariation_ayg3k")
+text = "23"
+horizontal_alignment = 2
+
+[node name="TabSpacer" type="Control" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer23"]
+custom_minimum_size = Vector2(17, 0)
+layout_mode = 2
+
+[node name="Task 21" type="RichTextLabel" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/LineContainer23"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_e3agf")
+theme_override_fonts/normal_font = SubResource("FontVariation_krnxt")
+text = "play_sound(TYPED_INCORRECT)"
+fit_content = true
+script = ExtResource("4_krnxt")
+typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+not_typed_color = Color(0.188235, 0.364706, 0.258824, 1)
+
+[node name="TextCursor" parent="VBoxContainer/PanelContainer/ScrollContainer/MarginContainer" instance=ExtResource("5_itnlv")]
+visible = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
