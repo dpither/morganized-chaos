@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=4 format=3 uid="uid://mfi2rorkbyhl"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=6 format=3 uid="uid://mfi2rorkbyhl"]
 
 [ext_resource type="Script" uid="uid://o8lg02lx7xge" path="res://scripts/level_data.gd" id="1_2jl5c"]
-[ext_resource type="PackedScene" uid="uid://bwhyhgj72sfns" path="res://scenes/app_content/vscode_task.tscn" id="1_amc8c"]
+[ext_resource type="PackedScene" uid="uid://bwhyhgj72sfns" path="res://scenes/app_content/levels/vscode_task.tscn" id="1_amc8c"]
 [ext_resource type="Texture2D" uid="uid://5ivrvuefuhy" path="res://resources/icons/vscode_icon.tres" id="2_e7n1o"]
+[ext_resource type="Resource" uid="uid://dhnn0rtd4yykl" path="res://resources/level_data/notepad_mechanics.tres" id="4_g8pkq"]
+[ext_resource type="Resource" uid="uid://ca6hgui54f2k3" path="res://resources/level_data/godot_new_project.tres" id="5_8y1yo"]
 
 [resource]
 script = ExtResource("1_2jl5c")
@@ -11,6 +13,8 @@ mistake_multiplier = 1
 level_name = "Create task script"
 accuracy = 0.0
 duration = 0
+is_unlocked = false
+prerequisites = Array[ExtResource("1_2jl5c")]([ExtResource("4_g8pkq"), ExtResource("5_8y1yo")])
 id = "vscode_task"
 title = "task.gd"
 icon = ExtResource("2_e7n1o")

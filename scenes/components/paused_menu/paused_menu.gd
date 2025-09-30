@@ -7,8 +7,8 @@ extends Control
 
 func _ready() -> void:
   process_mode = Node.PROCESS_MODE_WHEN_PAUSED
-  music_slider.value = AudioManager.DEFAULT_MUSIC_VOLUME
-  sound_slider.value = AudioManager.DEFAULT_SOUND_VOLUME
+  music_slider.value = AudioManager.music_volume
+  sound_slider.value = AudioManager.sound_volume
   music_slider.drag_ended.connect(_on_music_slider_drag_ended)
   sound_slider.drag_ended.connect(_on_sound_slider_drag_ended)
   close_button.pressed.connect(_resume)
@@ -18,8 +18,10 @@ func _ready() -> void:
 func _gui_input(event: InputEvent) -> void:
   if event is not InputEventMouseButton:
     return
+
   if not event.pressed:
     return
+
   if event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_RIGHT:
     AudioManager.play_sound(AudioManager.SOUND_TYPE.MOUSE_CLICKED)
 

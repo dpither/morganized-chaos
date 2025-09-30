@@ -6,13 +6,19 @@ const CURSOR_WIDTH := 1
 @export var password_task: TypingTask
 @export var glitch_overlay: GlitchOverlay
 @export var desktop_scene: PackedScene
-var is_complete = false
+@export var credits_button: Button
+@export var credits: Control
+var is_complete := false
 
 func _ready() -> void:
+  credits_button.pressed.connect(_on_credits_pressed)
   await get_tree().process_frame
   _update_cursor()
 
 func _unhandled_input(event: InputEvent) -> void:
+  if credits.visible:
+    return
+
   if is_complete:
     return
 
@@ -23,8 +29,8 @@ func _unhandled_input(event: InputEvent) -> void:
     return
 
   if OS.is_keycode_unicode(event.keycode):
-    var typed_char = String.chr(event.unicode)
-    print("Typed: " + typed_char)
+    var typed_char := String.chr(event.unicode)
+    # print("Typed: " + typed_char)
     _handle_char(typed_char)
 
 func _handle_char(typed_char: String) -> void:
@@ -34,6 +40,7 @@ func _handle_char(typed_char: String) -> void:
       _login()
     else:
       _update_cursor()
+
   else:
     AudioManager.play_sound(AudioManager.SOUND_TYPE.TYPED_INCORRECT)
     glitch_overlay.trigger_glitch(glitch_overlay.DEFAULT_GLITCH_DURATION)
@@ -48,3 +55,5 @@ func _login() -> void:
   AudioManager.play_sound(AudioManager.SOUND_TYPE.LEVEL_COMPLETED)
   get_tree().change_scene_to_packed(desktop_scene)
   
+func _on_credits_pressed() -> void:
+  credits.visible = !credits.visible

@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://5okjyrr07ech" path="res://scenes/login/login.gd" id="1_kmql7"]
 [ext_resource type="PackedScene" uid="uid://dcudccp2o1nrt" path="res://scenes/desktop.tscn" id="2_d1mgv"]
 [ext_resource type="Script" uid="uid://cbn7k7mpx0f3" path="res://scripts/computer_screen.gd" id="2_ructg"]
-[ext_resource type="Texture2D" uid="uid://dyio7na2w1mr2" path="res://assets/ui/checker.png" id="3_d1mgv"]
 [ext_resource type="Texture2D" uid="uid://20hjj8515y62" path="res://assets/ui/morganized-chaos-profile.png" id="4_ap5ty"]
 [ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="5_rptua"]
 [ext_resource type="FontFile" uid="uid://d4if4akjtlgak" path="res://assets/fonts/PixelOperator-Bold.ttf" id="6_2n0ky"]
@@ -13,6 +12,7 @@
 [ext_resource type="Shader" uid="uid://bey6wjqmfvtfq" path="res://shaders/glitch-effect.gdshader" id="10_d11ks"]
 [ext_resource type="Script" uid="uid://m340exx6kg8l" path="res://scripts/glitch_overlay.gd" id="11_5h4wf"]
 [ext_resource type="PackedScene" uid="uid://ctg4fcgnyxxac" path="res://scenes/components/paused_menu/paused_menu.tscn" id="12_bfpwb"]
+[ext_resource type="PackedScene" uid="uid://coc8g6rvbg35o" path="res://scenes/components/credits/credits.tscn" id="12_ructg"]
 
 [sub_resource type="FontVariation" id="FontVariation_47vyr"]
 base_font = ExtResource("6_2n0ky")
@@ -33,7 +33,7 @@ shader_parameter/shake_block_size = 30.0
 shader_parameter/shake_color_rate = 0.0
 shader_parameter/enabled = false
 
-[node name="Login" type="Control" node_paths=PackedStringArray("cursor", "password_task", "glitch_overlay")]
+[node name="Login" type="Control" node_paths=PackedStringArray("cursor", "password_task", "glitch_overlay", "credits_button", "credits")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,22 +41,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kmql7")
-cursor = NodePath("TextCursor")
-password_task = NodePath("VBoxContainer/PasswordContainer/MarginContainer/PasswordTask")
-glitch_overlay = NodePath("GlitchOverlay")
+cursor = NodePath("ComputerScreen/TextCursor")
+password_task = NodePath("ComputerScreen/LoginContainer/PasswordTaskContainer/PasswordTaskMargin/PasswordTask")
+glitch_overlay = NodePath("ComputerScreen/GlitchOverlay")
 desktop_scene = ExtResource("2_d1mgv")
+credits_button = NodePath("ComputerScreen/CreditsButton")
+credits = NodePath("ComputerScreen/Credits")
 
-[node name="Screen" type="Control" parent="."]
+[node name="ComputerScreen" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 script = ExtResource("2_ructg")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="ComputerScreen"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,7 +67,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.537255, 0.635294, 0.341176, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="LoginContainer" type="VBoxContainer" parent="ComputerScreen"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -74,15 +75,17 @@ anchor_right = 0.5
 offset_left = -90.0
 offset_top = 60.0
 offset_right = 90.0
+offset_bottom = 217.0
 grow_horizontal = 2
 theme_override_constants/separation = 8
 
-[node name="UserIcon" type="TextureRect" parent="VBoxContainer"]
+[node name="UserIcon" type="TextureRect" parent="ComputerScreen/LoginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("4_ap5ty")
 
-[node name="UserName" type="Label" parent="VBoxContainer"]
+[node name="UserNameLabel" type="Label" parent="ComputerScreen/LoginContainer"]
 layout_mode = 2
 theme = ExtResource("5_rptua")
 theme_override_colors/font_color = Color(0.933333, 1, 0.8, 1)
@@ -91,27 +94,22 @@ theme_override_font_sizes/font_size = 32
 text = "Morgan"
 horizontal_alignment = 1
 
-[node name="PasswordContainer" type="PanelContainer" parent="VBoxContainer"]
+[node name="PasswordTaskContainer" type="PanelContainer" parent="ComputerScreen/LoginContainer"]
 custom_minimum_size = Vector2(180, 21)
 layout_mode = 2
-mouse_filter = 1
+mouse_filter = 2
 theme = ExtResource("5_rptua")
 theme_type_variation = &"Inset1"
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PasswordContainer"]
-visible = false
-modulate = Color(1, 1, 1, 0.498039)
+[node name="PasswordTaskMargin" type="MarginContainer" parent="ComputerScreen/LoginContainer/PasswordTaskContainer"]
 layout_mode = 2
-texture = ExtResource("3_d1mgv")
-stretch_mode = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PasswordContainer"]
-layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_right = 2
 
-[node name="PasswordTask" type="RichTextLabel" parent="VBoxContainer/PasswordContainer/MarginContainer"]
+[node name="PasswordTask" type="RichTextLabel" parent="ComputerScreen/LoginContainer/PasswordTaskContainer/PasswordTaskMargin"]
 layout_mode = 2
+mouse_filter = 2
 theme = ExtResource("5_rptua")
 theme_override_fonts/normal_font = SubResource("FontVariation_31byv")
 text = "HealthyGameJam2025"
@@ -121,12 +119,18 @@ typed_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
 not_typed_color = Color(0.301961, 0.501961, 0.380392, 1)
 hide_typed = true
 
-[node name="TextCursor" parent="." instance=ExtResource("9_1md81")]
-visible = true
+[node name="HintLabel" type="Label" parent="ComputerScreen/LoginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_rptua")
+theme_override_colors/font_color = Color(0.188235, 0.364706, 0.258824, 1)
+text = "Type the password"
+
+[node name="TextCursor" parent="ComputerScreen" instance=ExtResource("9_1md81")]
 layout_mode = 0
 offset_bottom = 13.0
 
-[node name="GlitchOverlay" type="ColorRect" parent="."]
+[node name="GlitchOverlay" type="ColorRect" parent="ComputerScreen"]
 material = SubResource("ShaderMaterial_wlyqo")
 layout_mode = 1
 anchors_preset = 15
@@ -138,6 +142,30 @@ mouse_filter = 2
 color = Color(1, 1, 1, 0)
 script = ExtResource("11_5h4wf")
 
-[node name="PausedMenu" parent="." instance=ExtResource("12_bfpwb")]
+[node name="CreditsButton" type="Button" parent="ComputerScreen"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_bottom = -8.0
+grow_vertical = 0
+size_flags_horizontal = 4
+mouse_filter = 1
+theme = ExtResource("5_rptua")
+toggle_mode = true
+text = "Credits"
+
+[node name="Credits" parent="ComputerScreen" node_paths=PackedStringArray("open_button") instance=ExtResource("12_ructg")]
+visible = false
+layout_mode = 1
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+open_button = NodePath("../CreditsButton")
+
+[node name="PausedMenu" parent="ComputerScreen" instance=ExtResource("12_bfpwb")]
 visible = false
 layout_mode = 1

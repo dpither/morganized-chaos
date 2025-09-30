@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=85 format=3 uid="uid://6qhtgfqfkf5l"]
+[gd_resource type="Theme" load_steps=83 format=3 uid="uid://6qhtgfqfkf5l"]
 
 [ext_resource type="FontFile" uid="uid://de7bpgdsslej1" path="res://assets/fonts/PixelOperator.ttf" id="2_vj6dk"]
 [ext_resource type="Texture2D" uid="uid://oa7e0hlhxdu7" path="res://assets/ui/morganized-chaos-ui-frames.png" id="3_05tig"]
@@ -66,10 +66,10 @@ content_margin_top = 4.0
 content_margin_right = 2.0
 content_margin_bottom = 3.0
 texture = ExtResource("3_vj6dk")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(100, 4, 24, 24)
@@ -238,10 +238,10 @@ region_rect = Rect2(37, 37, 22, 22)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjfk0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_110ce"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iojti"]
 bg_color = Color(0.117647, 0.227451, 0.160784, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05tig"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udp68"]
 
 [sub_resource type="FontVariation" id="FontVariation_yin2u"]
 base_font = ExtResource("3_110ce")
@@ -351,11 +351,6 @@ texture_margin_bottom = 2.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(69, 69, 22, 22)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj6dk"]
-bg_color = Color(0.117647, 0.227451, 0.160784, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_110ce"]
 
 [sub_resource type="FontVariation" id="FontVariation_1rmny"]
 base_font = ExtResource("3_110ce")
@@ -561,12 +556,22 @@ Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 16
 Label/fonts/font = SubResource("FontVariation_mihib")
 Label/styles/normal = SubResource("StyleBoxEmpty_cjfk0")
-LevelItem/base_type = &"PanelContainer"
-LevelItem/colors/font_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
-LevelItem/colors/font_disabled_color = Color(0.188235, 0.364706, 0.258824, 1)
-LevelItem/colors/font_hover_color = Color(0.933333, 1, 0.8, 1)
-LevelItem/styles/hover = SubResource("StyleBoxFlat_110ce")
-LevelItem/styles/panel = SubResource("StyleBoxEmpty_05tig")
+LevelListItem/base_type = &"PanelContainer"
+LevelListItem/colors/font_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
+LevelListItem/colors/font_disabled_color = Color(0.188235, 0.364706, 0.258824, 1)
+LevelListItem/colors/font_hover_color = Color(0.933333, 1, 0.8, 1)
+LevelListItem/styles/hover = SubResource("StyleBoxFlat_iojti")
+LevelListItem/styles/panel = SubResource("StyleBoxEmpty_udp68")
+LinkButton/colors/font_color = Color(0.933333, 1, 0.8, 1)
+LinkButton/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+LinkButton/colors/font_hover_color = Color(0.745098, 0.862745, 0.498039, 1)
+LinkButton/colors/font_outline_color = Color(0, 0, 0, 1)
+LinkButton/colors/font_pressed_color = Color(0.745098, 0.862745, 0.498039, 1)
+LinkButton/constants/outline_size = 0
+LinkButton/constants/underline_spacing = 2
+LinkButton/font_sizes/font_size = 16
+LinkButton/fonts/font = SubResource("FontVariation_mihib")
+LinkButton/styles/focus = null
 RichTextLabel/colors/default_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 0)
@@ -610,12 +615,6 @@ TaskBarButton/styles/hover_pressed = SubResource("StyleBoxTexture_6cw85")
 TaskBarButton/styles/is_focused = SubResource("StyleBoxTexture_xjl3a")
 TaskBarButton/styles/normal = SubResource("StyleBoxTexture_504p6")
 TaskBarButton/styles/pressed = SubResource("StyleBoxTexture_howt0")
-TaskItem/base_type = &"PanelContainer"
-TaskItem/colors/font_color = Color(0.0156863, 0.0470588, 0.0235294, 1)
-TaskItem/colors/font_disabled_color = Color(0.188235, 0.364706, 0.258824, 1)
-TaskItem/colors/font_hover_color = Color(0.933333, 1, 0.8, 1)
-TaskItem/styles/hover = SubResource("StyleBoxFlat_vj6dk")
-TaskItem/styles/panel = SubResource("StyleBoxEmpty_110ce")
 TitleBar/base_type = &"Label"
 TitleBar/colors/font_color = Color(0.933333, 1, 0.8, 1)
 TitleBar/colors/font_unfocused = Color(0.301961, 0.501961, 0.380392, 1)

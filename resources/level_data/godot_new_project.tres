@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=5 format=3 uid="uid://ca6hgui54f2k3"]
+
+[ext_resource type="Script" uid="uid://o8lg02lx7xge" path="res://scripts/level_data.gd" id="1_fojm2"]
+[ext_resource type="PackedScene" uid="uid://coutrjnfjxbm" path="res://scenes/app_content/levels/godot_new_project.tscn" id="1_qi0xn"]
+[ext_resource type="Texture2D" uid="uid://bcte4iocw0w1b" path="res://resources/icons/godot_icon.tres" id="2_yi2r7"]
+[ext_resource type="Resource" uid="uid://dijty512rpl0h" path="res://resources/level_data/notepad_brainstorm.tres" id="4_yi2r7"]
+
+[resource]
+script = ExtResource("1_fojm2")
+is_completed = false
+mistake_multiplier = 1
+level_name = "Create Godot project"
+accuracy = 0.0
+duration = 0
+is_unlocked = false
+prerequisites = Array[ExtResource("1_fojm2")]([ExtResource("4_yi2r7")])
+id = "godot_new_project"
+title = "New Project"
+icon = ExtResource("2_yi2r7")
+content = ExtResource("1_qi0xn")
+can_close = true
+metadata/_custom_type_script = "uid://o8lg02lx7xge"

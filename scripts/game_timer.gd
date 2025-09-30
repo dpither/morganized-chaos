@@ -1,4 +1,3 @@
-class_name GameTimer
 extends Timer
 
 func _ready() -> void:

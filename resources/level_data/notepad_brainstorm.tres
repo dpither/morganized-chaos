@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://o8lg02lx7xge" path="res://scripts/level_data.gd" id="1_7nb1o"]
 [ext_resource type="Texture2D" uid="uid://cbbeg3xqbugg8" path="res://resources/icons/notepad_file_icon.tres" id="1_he83b"]
-[ext_resource type="PackedScene" uid="uid://86bb58pmap1b" path="res://scenes/app_content/notepad_brainstom.tscn" id="1_wbdtd"]
+[ext_resource type="PackedScene" uid="uid://86bb58pmap1b" path="res://scenes/app_content/levels/notepad_brainstom.tscn" id="1_wbdtd"]
 
 [resource]
 script = ExtResource("1_7nb1o")
@@ -11,6 +11,8 @@ mistake_multiplier = 1
 level_name = "Brainstorm game ideas"
 accuracy = 0.0
 duration = 0
+is_unlocked = true
+prerequisites = Array[ExtResource("1_7nb1o")]([])
 id = "notepad_brainstorm"
 title = "Brainstorm"
 icon = ExtResource("1_he83b")

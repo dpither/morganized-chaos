@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcudccp2o1nrt"]
+[gd_scene load_steps=11 format=3 uid="uid://dcudccp2o1nrt"]
 
 [ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_81rff"]
 [ext_resource type="Shader" uid="uid://bey6wjqmfvtfq" path="res://shaders/glitch-effect.gdshader" id="1_dcrhm"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://d251men22v2cw" path="res://scenes/components/task_bar/task_bar.tscn" id="4_ox5hf"]
 [ext_resource type="Script" uid="uid://m340exx6kg8l" path="res://scripts/glitch_overlay.gd" id="6_6ajoh"]
 [ext_resource type="PackedScene" uid="uid://ctg4fcgnyxxac" path="res://scenes/components/paused_menu/paused_menu.tscn" id="8_pkmwo"]
-[ext_resource type="PackedScene" uid="uid://bl0tbstk5l4dq" path="res://scenes/app_content/game_over/game_over.tscn" id="9_vcvwy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dcrhm"]
 shader = ExtResource("1_dcrhm")
@@ -39,23 +38,25 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_gl26t")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ContentContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="WindowManager" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("taskbar")]
+[node name="WindowManager" type="Control" parent="ContentContainer" node_paths=PackedStringArray("taskbar", "background")]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 script = ExtResource("3_dcrhm")
 taskbar = NodePath("../TaskBar")
+background = NodePath("../../Background")
 
-[node name="TaskBar" parent="VBoxContainer" instance=ExtResource("4_ox5hf")]
+[node name="TaskBar" parent="ContentContainer" instance=ExtResource("4_ox5hf")]
 layout_mode = 2
 
 [node name="GameTimer" type="Timer" parent="."]
@@ -72,10 +73,6 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 script = ExtResource("6_6ajoh")
-
-[node name="GameOver" parent="." instance=ExtResource("9_vcvwy")]
-visible = false
-layout_mode = 1
 
 [node name="PausedMenu" parent="." instance=ExtResource("8_pkmwo")]
 visible = false

@@ -1,0 +1,371 @@
+[gd_scene load_steps=9 format=3 uid="uid://coc8g6rvbg35o"]
+
+[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_guksj"]
+[ext_resource type="Texture2D" uid="uid://ynobr4i7apwp" path="res://resources/icons/trophy_icon.tres" id="2_jcew4"]
+[ext_resource type="Script" uid="uid://drxmf8dnmq3t8" path="res://scenes/components/credits/credits.gd" id="2_o145k"]
+[ext_resource type="Texture2D" uid="uid://dsufkd7hkdo7" path="res://resources/icons/close_icon.tres" id="3_ijs8s"]
+[ext_resource type="Texture2D" uid="uid://oa7e0hlhxdu7" path="res://assets/ui/morganized-chaos-ui-frames.png" id="4_ijs8s"]
+[ext_resource type="FontFile" uid="uid://d4if4akjtlgak" path="res://assets/fonts/PixelOperator-Bold.ttf" id="4_jcew4"]
+
+[sub_resource type="FontVariation" id="FontVariation_o145k"]
+base_font = ExtResource("4_jcew4")
+spacing_glyph = -1
+spacing_top = -1
+spacing_bottom = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcew4"]
+atlas = ExtResource("4_ijs8s")
+region = Rect2(40, 111, 16, 2)
+
+[node name="Credits" type="PanelContainer" node_paths=PackedStringArray("close_button", "scroll_container")]
+custom_minimum_size = Vector2(400, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 160.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_guksj")
+theme_type_variation = &"AppWindow"
+script = ExtResource("2_o145k")
+close_button = NodePath("ContentContainer/TitlebarPanel/CloseButton")
+scroll_container = NodePath("ContentContainer/CreditsInset/CreditsScrollContainer")
+
+[node name="ContentContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="TitlebarPanel" type="PanelContainer" parent="ContentContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_guksj")
+theme_type_variation = &"TitleBar"
+
+[node name="TitleContainer" type="HBoxContainer" parent="ContentContainer/TitlebarPanel"]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+theme_type_variation = &"TitleBar"
+theme_override_constants/separation = 2
+
+[node name="TitleIcon" type="TextureRect" parent="ContentContainer/TitlebarPanel/TitleContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_jcew4")
+expand_mode = 2
+
+[node name="TitleLabel" type="Label" parent="ContentContainer/TitlebarPanel/TitleContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+theme_type_variation = &"TitleBar"
+text = "Credits"
+
+[node name="CloseButton" type="Button" parent="ContentContainer/TitlebarPanel"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_guksj")
+theme_type_variation = &"TitleBarButton"
+icon = ExtResource("3_ijs8s")
+
+[node name="CreditsInset" type="PanelContainer" parent="ContentContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_type_variation = &"Inset2"
+
+[node name="CreditsScrollContainer" type="ScrollContainer" parent="ContentContainer/CreditsInset"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_guksj")
+scroll_vertical_custom_step = 15.0
+
+[node name="CreditsMargin" type="MarginContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="CreditsContainer" type="VBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="AudioContainer" type="VBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+theme_override_fonts/font = SubResource("FontVariation_o145k")
+text = "Audio"
+
+[node name="NKCreamContainer" type="VBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AssetAuthorContainer" type="HBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/NKCreamContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AssetLinkButton" type="LinkButton" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/NKCreamContainer/AssetAuthorContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_guksj")
+text = "NK Cream"
+uri = "https://github.com/hainguyents13/mechvibes/tree/main/src/audio/nk-cream"
+
+[node name="AuthorLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/NKCreamContainer/AssetAuthorContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+text = " by Hai Nguyen"
+
+[node name="LicenseContainer" type="HBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/NKCreamContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LicenseLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/NKCreamContainer/LicenseContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+text = "License: "
+
+[node name="LicenseLinkButton" type="LinkButton" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/NKCreamContainer/LicenseContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_guksj")
+text = "MIT"
+uri = "https://opensource.org/license/mit"
+
+[node name="UniversalUISoundpackContainer" type="VBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AssetAuthorContainer" type="HBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/UniversalUISoundpackContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AssetLinkButton" type="LinkButton" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/UniversalUISoundpackContainer/AssetAuthorContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_guksj")
+text = "Universal UI Soundpack"
+uri = "https://cyrex-studios.itch.io/universal-ui-soundpack"
+
+[node name="AuthorLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/UniversalUISoundpackContainer/AssetAuthorContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+text = " by Nathan Gibson"
+
+[node name="LicenseContainer" type="HBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/UniversalUISoundpackContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LicenseLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/UniversalUISoundpackContainer/LicenseContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+text = "License: "
+
+[node name="LicenseLinkButton" type="LinkButton" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/UniversalUISoundpackContainer/LicenseContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_guksj")
+text = "CC BY 4.0"
+uri = "https://creativecommons.org/licenses/by/4.0/"
+
+[node name="ComputerHummingContainer" type="VBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AssetAuthorContainer" type="HBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/ComputerHummingContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AssetLinkButton" type="LinkButton" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/ComputerHummingContainer/AssetAuthorContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_guksj")
+text = "computer humming"
+uri = "https://pixabay.com/sound-effects/computer-humming-236384/"
+
+[node name="AuthorLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/ComputerHummingContainer/AssetAuthorContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+text = " by Soul_Serenity_Sounds"
+
+[node name="LicenseContainer" type="HBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/ComputerHummingContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LicenseLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/ComputerHummingContainer/LicenseContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+text = "License: "
+
+[node name="LicenseLinkButton" type="LinkButton" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/ComputerHummingContainer/LicenseContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_guksj")
+text = "Pixabay Content License"
+uri = "https://pixabay.com/service/license-summary/"
+
+[node name="GlitchNoisesContainer" type="VBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AssetAuthorContainer" type="HBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/GlitchNoisesContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AssetLinkButton" type="LinkButton" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/GlitchNoisesContainer/AssetAuthorContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_guksj")
+text = "Glitch Noises"
+uri = "https://vladislavzh.itch.io/glitch-noises"
+
+[node name="AuthorLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/GlitchNoisesContainer/AssetAuthorContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+text = " by Vladislav Zharkov"
+
+[node name="LicenseContainer" type="HBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/GlitchNoisesContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LicenseLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/GlitchNoisesContainer/LicenseContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+text = "License: "
+
+[node name="LicenseLinkButton" type="LinkButton" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/AudioContainer/GlitchNoisesContainer/LicenseContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_guksj")
+text = "CC0 1.0"
+uri = "https://creativecommons.org/publicdomain/zero/1.0/"
+
+[node name="Divider1" type="TextureRect" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_jcew4")
+
+[node name="FontsContainer" type="VBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/FontsContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+theme_override_fonts/font = SubResource("FontVariation_o145k")
+text = "Fonts"
+
+[node name="PixelOperatorContainer" type="VBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/FontsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AssetAuthorContainer" type="HBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/FontsContainer/PixelOperatorContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AssetLinkButton" type="LinkButton" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/FontsContainer/PixelOperatorContainer/AssetAuthorContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_guksj")
+text = "Pixel Operator"
+uri = "https://www.dafont.com/pixel-operator.font"
+
+[node name="AuthorLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/FontsContainer/PixelOperatorContainer/AssetAuthorContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+text = " by Jayvee Enaguas"
+
+[node name="LicenseContainer" type="HBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/FontsContainer/PixelOperatorContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LicenseLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/FontsContainer/PixelOperatorContainer/LicenseContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+text = "License: "
+
+[node name="LicenseLinkButton" type="LinkButton" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/FontsContainer/PixelOperatorContainer/LicenseContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_guksj")
+text = "CC0 1.0"
+uri = "https://creativecommons.org/publicdomain/zero/1.0/"
+
+[node name="Divider2" type="TextureRect" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_jcew4")
+
+[node name="ShadersContainer" type="VBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/ShadersContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+theme_override_fonts/font = SubResource("FontVariation_o145k")
+text = "Shaders"
+
+[node name="GlitchEffectContainer" type="VBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/ShadersContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AssetAuthorContainer" type="HBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/ShadersContainer/GlitchEffectContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AssetLinkButton" type="LinkButton" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/ShadersContainer/GlitchEffectContainer/AssetAuthorContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_guksj")
+text = "Glitch Effect Shader"
+uri = "https://godotshaders.com/shader/glitch-effect-shader-for-godot-engine-4/"
+
+[node name="AuthorLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/ShadersContainer/GlitchEffectContainer/AssetAuthorContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+text = " by Yui Kinomoto"
+
+[node name="LicenseContainer" type="HBoxContainer" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/ShadersContainer/GlitchEffectContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LicenseLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/ShadersContainer/GlitchEffectContainer/LicenseContainer"]
+layout_mode = 2
+theme = ExtResource("1_guksj")
+text = "License: "
+
+[node name="LicenseLinkButton" type="LinkButton" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer/ShadersContainer/GlitchEffectContainer/LicenseContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_guksj")
+text = "MIT"
+uri = "https://opensource.org/license/mit"
+
+[node name="Divider3" type="TextureRect" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_jcew4")
+
+[node name="FootnoteLabel" type="Label" parent="ContentContainer/CreditsInset/CreditsScrollContainer/CreditsMargin/CreditsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_guksj")
+text = "Everything else by me 
+Made with Godot & LibreSprite
+<3"
+horizontal_alignment = 1

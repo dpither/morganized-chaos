@@ -13,7 +13,9 @@ config_version=5
 config/name="Morganized Chaos"
 run/main_scene="uid://doir0nugrh8u1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/use_filter=false
+boot_splash/image="uid://bywyhqs414myj"
+config/icon="uid://c0lf850glgyqh"
 
 [audio]
 

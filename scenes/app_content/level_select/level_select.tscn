@@ -2,11 +2,11 @@
 
 [ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_uhf0v"]
 [ext_resource type="Script" uid="uid://4x0tnf1hcjor" path="res://scenes/app_content/level_select/level_select.gd" id="2_3f0pr"]
-[ext_resource type="PackedScene" uid="uid://b4j4fg8eumo16" path="res://scenes/components/level_item/level_item.tscn" id="3_uy2b1"]
+[ext_resource type="PackedScene" uid="uid://b4j4fg8eumo16" path="res://scenes/components/level_list_item/level_list_item.tscn" id="3_uy2b1"]
 [ext_resource type="Texture2D" uid="uid://dhhdgbe8uvloe" path="res://resources/icons/accuracy_icon.tres" id="4_8qydx"]
 [ext_resource type="Texture2D" uid="uid://dliphcco1duiy" path="res://resources/icons/duration_icon.tres" id="4_mh35m"]
 
-[node name="LevelSelector" type="Control" node_paths=PackedStringArray("scroll_container", "level_container")]
+[node name="LevelSelect" type="Control" node_paths=PackedStringArray("levels_scroll_container", "levels_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,11 +18,11 @@ size_flags_vertical = 4
 mouse_filter = 1
 theme = ExtResource("1_uhf0v")
 script = ExtResource("2_3f0pr")
-scroll_container = NodePath("VBoxContainer/Background/ScrollContainer")
-level_container = NodePath("VBoxContainer/Background/ScrollContainer/MarginContainer/LevelContainer")
-level_item_scene = ExtResource("3_uy2b1")
+levels_scroll_container = NodePath("ContentContainer/LevelsPanel/LevelsScrollContainer")
+levels_container = NodePath("ContentContainer/LevelsPanel/LevelsScrollContainer/LevelsContainer")
+level_list_item_scene = ExtResource("3_uy2b1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ContentContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,56 +31,53 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="NavBarMargin" type="MarginContainer" parent="ContentContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 6
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 2
 
-[node name="HBoxContainerL" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="NavBarTitleContainer" type="HBoxContainer" parent="ContentContainer/NavBarMargin"]
 layout_mode = 2
+size_flags_horizontal = 0
 
-[node name="File" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainerL"]
+[node name="NavBarTitleLabel" type="Label" parent="ContentContainer/NavBarMargin/NavBarTitleContainer"]
 layout_mode = 2
 theme = ExtResource("1_uhf0v")
 text = "Game Jam Day 1 Goals"
 
-[node name="HBoxContainerR" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="NavBarIconsContainer" type="HBoxContainer" parent="ContentContainer/NavBarMargin"]
 modulate = Color(0.0156863, 0.0470588, 0.0235294, 1)
 layout_mode = 2
+size_flags_horizontal = 8
 theme_override_constants/separation = 28
 alignment = 2
 
-[node name="AccuracyIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainerR"]
+[node name="AccuracyIcon" type="TextureRect" parent="ContentContainer/NavBarMargin/NavBarIconsContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("4_8qydx")
 
-[node name="DurationIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainerR"]
+[node name="DurationIcon" type="TextureRect" parent="ContentContainer/NavBarMargin/NavBarIconsContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("1_uhf0v")
 theme_type_variation = &"TitleBarButton"
 texture = ExtResource("4_mh35m")
 
-[node name="Background" type="PanelContainer" parent="VBoxContainer"]
+[node name="LevelsPanel" type="PanelContainer" parent="ContentContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 theme_type_variation = &"Inset2"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Background"]
+[node name="LevelsScrollContainer" type="ScrollContainer" parent="ContentContainer/LevelsPanel"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_uhf0v")
 scroll_vertical_custom_step = 15.0
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Background/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="LevelContainer" type="VBoxContainer" parent="VBoxContainer/Background/ScrollContainer/MarginContainer"]
+[node name="LevelsContainer" type="VBoxContainer" parent="ContentContainer/LevelsPanel/LevelsScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2

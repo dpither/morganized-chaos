@@ -17,7 +17,7 @@ var window_manager: WindowManager
 var is_maximized := false
 
 var _id: String
-var _can_close = true
+var _can_close := true
 var _dragging := false
 var _drag_offset := Vector2.ZERO
 var _prev_position := Vector2.ZERO
@@ -39,18 +39,6 @@ func _gui_input(event: InputEvent) -> void:
 	if event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_RIGHT:
 		focus_requested.emit(self)
 
-func _on_title_bar_pressed(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			_dragging = true
-			_drag_offset = get_global_mouse_position() - global_position
-		else:
-			_dragging = false
-	elif event is InputEventMouseMotion and _dragging:
-			if is_maximized:
-				return
-			global_position = (get_global_mouse_position() - _drag_offset).clamp(Vector2.ZERO, get_parent_area_size() - size)
-
 func toggle_maximize() -> void:
 	if not is_maximized:
 		_prev_position = global_position
@@ -66,6 +54,7 @@ func toggle_maximize() -> void:
 		is_maximized = false
 
 func minimize() -> void:
+	set_focus(false)
 	hide()
 	window_minimized.emit(self)
 
@@ -75,6 +64,7 @@ func restore() -> void:
 
 func close() -> void:
 	hide()
+	set_focus(false)
 	if _can_close:
 		window_closed.emit(self)
 	else:
@@ -94,7 +84,9 @@ func set_app_data(app_data: AppData) -> void:
 		icon.hide()
 	
 	content = app_data.content.instantiate()
-	content.app_window = self
+	if "app_window" in content:
+		content.app_window = self
+
 	content_root.add_child(content)
 
 func set_focus(is_focused: bool) -> void:
@@ -107,6 +99,20 @@ func set_focus(is_focused: bool) -> void:
 	else:
 		title_bar.add_theme_stylebox_override("panel", get_theme_stylebox("unfocused", "TitleBar"))
 		title.add_theme_color_override("font_color", get_theme_color("font_unfocused", "TitleBar"))
+
+func _on_title_bar_pressed(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			_dragging = true
+			_drag_offset = get_global_mouse_position() - global_position
+		else:
+			_dragging = false
+
+	elif event is InputEventMouseMotion and _dragging:
+			if is_maximized:
+				return
+				
+			global_position = (get_global_mouse_position() - _drag_offset).clamp(Vector2.ZERO, get_parent_area_size() - size)
 
 func _on_close_pressed() -> void:
 	close()

@@ -18,7 +18,7 @@ func type_next(typed_char: String) -> bool:
 		typed_count += 1
 		_update_task()
 		return true
-	
+
 	return false
 
 func get_font_size() -> int:
@@ -30,25 +30,29 @@ func is_task_complete() -> bool:
 func get_cursor_position() -> Vector2:
 	if typed_count == 0:
 		return global_position
-	var font = get_theme_font("normal_font")
-	var line = get_character_line(typed_count)
-	var y_offset = get_line_offset(line)
-	var line_start_index = get_line_range(line).x
-	var line_text = text.substr(line_start_index, typed_count - line_start_index)
-	var x_offset = font.get_string_size(line_text, HORIZONTAL_ALIGNMENT_LEFT, -1, get_font_size()).x
+
+	var font := get_theme_font("normal_font")
+	var line := get_character_line(typed_count)
+	var y_offset := get_line_offset(line)
+	var line_start_index := get_line_range(line).x
+	var line_text := text.substr(line_start_index, typed_count - line_start_index)
+	var x_offset := font.get_string_size(line_text, horizontal_alignment, -1, get_font_size()).x
+
 	if line_start_index != typed_count:
 		x_offset -= 1
+
 	return global_position + Vector2(x_offset, y_offset)
 
 func _update_task() -> void:
-	var typed_text = ""
+	var typed_text := ""
+	
 	if hide_typed:
 		for i in typed_count:
 			typed_text += "*"
 	else:
 		typed_text = text.substr(0, typed_count)
 	
-	var not_typed_text = text.substr(typed_count)
+	var not_typed_text := text.substr(typed_count)
 	clear()
 	if highlight:
 		push_bgcolor(highlight_color)

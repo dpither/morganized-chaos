@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4j4fg8eumo16"]
+
+[ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_5pv2e"]
+[ext_resource type="Script" uid="uid://md71f0fo2ell" path="res://scenes/components/level_list_item/level_list_item.gd" id="2_5mhnk"]
+[ext_resource type="Texture2D" uid="uid://d30et2vusb2oo" path="res://resources/icons/rl_arrow_icon.tres" id="3_qxoiu"]
+
+[node name="LevelListItem" type="PanelContainer" node_paths=PackedStringArray("check_box", "level_name_label", "play_icon", "accuracy_label", "duration_label")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 24.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 1
+theme = ExtResource("1_5pv2e")
+theme_type_variation = &"LevelListItem"
+script = ExtResource("2_5mhnk")
+check_box = NodePath("ContentMargin/LevelNameContainer/CheckBox")
+level_name_label = NodePath("ContentMargin/LevelNameContainer/LevelNameLabel")
+play_icon = NodePath("ContentMargin/LevelNameContainer/PlayIcon")
+accuracy_label = NodePath("ContentMargin/LevelStatContainer/AccuracyLabel")
+duration_label = NodePath("ContentMargin/LevelStatContainer/DurationLabel")
+
+[node name="ContentMargin" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="LevelNameContainer" type="HBoxContainer" parent="ContentMargin"]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+
+[node name="CheckBox" type="CheckBox" parent="ContentMargin/LevelNameContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_mode = 0
+mouse_filter = 2
+theme = ExtResource("1_5pv2e")
+
+[node name="LevelNameLabel" type="Label" parent="ContentMargin/LevelNameContainer"]
+layout_mode = 2
+text = "Placeholder Name"
+
+[node name="PlayIcon" type="TextureRect" parent="ContentMargin/LevelNameContainer"]
+self_modulate = Color(0.933333, 1, 0.8, 1)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("3_qxoiu")
+
+[node name="LevelStatContainer" type="HBoxContainer" parent="ContentMargin"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_5pv2e")
+alignment = 2
+
+[node name="AccuracyLabel" type="Label" parent="ContentMargin/LevelStatContainer"]
+layout_mode = 2
+theme = ExtResource("1_5pv2e")
+text = "67.7%"
+horizontal_alignment = 2
+
+[node name="DurationLabel" type="Label" parent="ContentMargin/LevelStatContainer"]
+custom_minimum_size = Vector2(29, 0)
+layout_mode = 2
+theme = ExtResource("1_5pv2e")
+text = "67:67"

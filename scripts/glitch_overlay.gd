@@ -2,6 +2,7 @@ class_name GlitchOverlay
 extends ColorRect
 
 const DEFAULT_GLITCH_DURATION := 0.3
+
 var glitch_timer: Timer
 
 func _ready() -> void:

@@ -3,76 +3,67 @@
 [ext_resource type="Theme" uid="uid://6qhtgfqfkf5l" path="res://resources/theme.tres" id="1_dej2g"]
 [ext_resource type="Script" uid="uid://s6j0r6t43hdn" path="res://scenes/components/app_window/app_window.gd" id="2_bwdwl"]
 [ext_resource type="Texture2D" uid="uid://cw2cjyy3o268k" path="res://resources/icons/minimize_icon.tres" id="3_bwdwl"]
-[ext_resource type="Texture2D" uid="uid://b372ujqh2mmi0" path="res://icon.svg" id="3_sb7m4"]
+[ext_resource type="Texture2D" uid="uid://bcte4iocw0w1b" path="res://resources/icons/godot_icon.tres" id="3_sb7m4"]
 [ext_resource type="Texture2D" uid="uid://c4wfjhwbajm2m" path="res://resources/icons/maximize_icon.tres" id="4_wycpe"]
 [ext_resource type="Texture2D" uid="uid://dsufkd7hkdo7" path="res://resources/icons/close_icon.tres" id="5_wycpe"]
 
 [node name="AppWindow" type="PanelContainer" node_paths=PackedStringArray("close_button", "maximize_button", "minimize_button", "title_bar", "icon", "title", "content_root")]
 custom_minimum_size = Vector2(320, 240)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -120.0
-offset_right = 160.0
-offset_bottom = 120.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 320.0
+offset_bottom = 240.0
 mouse_filter = 1
 theme = ExtResource("1_dej2g")
 theme_type_variation = &"AppWindow"
 script = ExtResource("2_bwdwl")
-close_button = NodePath("VBoxContainer/Titlebar/ControlButtons/Close")
-maximize_button = NodePath("VBoxContainer/Titlebar/ControlButtons/HBoxContainer/Maximize")
-minimize_button = NodePath("VBoxContainer/Titlebar/ControlButtons/HBoxContainer/Minimize")
-title_bar = NodePath("VBoxContainer/Titlebar")
-icon = NodePath("VBoxContainer/Titlebar/Title/Icon")
-title = NodePath("VBoxContainer/Titlebar/Title/Title")
-content_root = NodePath("VBoxContainer/Content")
+close_button = NodePath("WindowContainer/TitlebarPanel/ControlButtonContainer/CloseButton")
+maximize_button = NodePath("WindowContainer/TitlebarPanel/ControlButtonContainer/SubContainer/MaximizeButton")
+minimize_button = NodePath("WindowContainer/TitlebarPanel/ControlButtonContainer/SubContainer/MinimizeButton")
+title_bar = NodePath("WindowContainer/TitlebarPanel")
+icon = NodePath("WindowContainer/TitlebarPanel/TitleContainer/TitleIcon")
+title = NodePath("WindowContainer/TitlebarPanel/TitleContainer/TitleLabel")
+content_root = NodePath("WindowContainer/ContentRoot")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="WindowContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="Titlebar" type="PanelContainer" parent="VBoxContainer"]
+[node name="TitlebarPanel" type="PanelContainer" parent="WindowContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("1_dej2g")
 theme_type_variation = &"TitleBar"
 
-[node name="Title" type="HBoxContainer" parent="VBoxContainer/Titlebar"]
+[node name="TitleContainer" type="HBoxContainer" parent="WindowContainer/TitlebarPanel"]
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 2
 theme_type_variation = &"TitleBar"
 theme_override_constants/separation = 2
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/Titlebar/Title"]
+[node name="TitleIcon" type="TextureRect" parent="WindowContainer/TitlebarPanel/TitleContainer"]
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("3_sb7m4")
 expand_mode = 2
 
-[node name="Title" type="Label" parent="VBoxContainer/Titlebar/Title"]
+[node name="TitleLabel" type="Label" parent="WindowContainer/TitlebarPanel/TitleContainer"]
 layout_mode = 2
 theme = ExtResource("1_dej2g")
 theme_type_variation = &"TitleBar"
 text = "Placeholder Title"
 
-[node name="ControlButtons" type="HBoxContainer" parent="VBoxContainer/Titlebar"]
+[node name="ControlButtonContainer" type="HBoxContainer" parent="WindowContainer/TitlebarPanel"]
 layout_mode = 2
 size_flags_horizontal = 8
 mouse_filter = 2
 theme_override_constants/separation = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Titlebar/ControlButtons"]
+[node name="SubContainer" type="HBoxContainer" parent="WindowContainer/TitlebarPanel/ControlButtonContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Minimize" type="Button" parent="VBoxContainer/Titlebar/ControlButtons/HBoxContainer"]
+[node name="MinimizeButton" type="Button" parent="WindowContainer/TitlebarPanel/ControlButtonContainer/SubContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
@@ -81,7 +72,7 @@ theme = ExtResource("1_dej2g")
 theme_type_variation = &"TitleBarButton"
 icon = ExtResource("3_bwdwl")
 
-[node name="Maximize" type="Button" parent="VBoxContainer/Titlebar/ControlButtons/HBoxContainer"]
+[node name="MaximizeButton" type="Button" parent="WindowContainer/TitlebarPanel/ControlButtonContainer/SubContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
@@ -90,7 +81,7 @@ theme = ExtResource("1_dej2g")
 theme_type_variation = &"TitleBarButton"
 icon = ExtResource("4_wycpe")
 
-[node name="Close" type="Button" parent="VBoxContainer/Titlebar/ControlButtons"]
+[node name="CloseButton" type="Button" parent="WindowContainer/TitlebarPanel/ControlButtonContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
@@ -99,7 +90,7 @@ theme = ExtResource("1_dej2g")
 theme_type_variation = &"TitleBarButton"
 icon = ExtResource("5_wycpe")
 
-[node name="Content" type="Control" parent="VBoxContainer"]
+[node name="ContentRoot" type="Control" parent="WindowContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2

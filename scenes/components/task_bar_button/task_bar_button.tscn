@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://beho6vky08wbv" path="res://scenes/components/task_bar_button/task_bar_button.gd" id="3_cjajg"]
 
 [node name="TaskBarButton" type="Button"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(110, 0)
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
