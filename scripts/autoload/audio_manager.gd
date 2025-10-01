@@ -4,7 +4,8 @@ enum SOUND_TYPE {
   MOUSE_CLICKED,
   TYPED_CORRECT,
   TYPED_INCORRECT,
-  LEVEL_COMPLETED
+  LEVEL_COMPLETED,
+  GAME_OVER
 }
 enum MUSIC_TYPE {
   COMPUTER_HUM
@@ -37,6 +38,9 @@ var _sound_dict := {
   SOUND_TYPE.LEVEL_COMPLETED: [
     preload("res://assets/audio/level_complete.wav"),
   ],
+  SOUND_TYPE.GAME_OVER: [
+    preload("res://assets/audio/game_over.wav")
+  ]
 }
 var _num_sound_players := 8
 var _sound_players: Array[AudioStreamPlayer] = []

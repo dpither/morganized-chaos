@@ -18,7 +18,7 @@ spacing_glyph = -1
 spacing_top = -1
 spacing_bottom = 1
 
-[node name="GameOver" type="Control" node_paths=PackedStringArray("retry_button", "logout_button", "info_label", "tasks_complete_value_label", "duration_value_label", "accuracy_value_label")]
+[node name="GameOver" type="Control" node_paths=PackedStringArray("retry_button", "info_label", "tasks_complete_value_label", "duration_value_label", "accuracy_value_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,8 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_el2h8")
-retry_button = NodePath("ContentMargin/ContentContainer/ButtonContainer/RetryButton")
-logout_button = NodePath("ContentMargin/ContentContainer/ButtonContainer/LogoutButton")
+retry_button = NodePath("ContentMargin/ContentContainer/RetryButton")
 info_label = NodePath("ContentMargin/ContentContainer/InfoLabel")
 tasks_complete_value_label = NodePath("ContentMargin/ContentContainer/StatsPanel/StatsPanelMargin/StatsContainer/StatsGridMargin/StatsGrid/TasksCompleteValueLabel")
 duration_value_label = NodePath("ContentMargin/ContentContainer/StatsPanel/StatsPanelMargin/StatsContainer/StatsGridMargin/StatsGrid/DurationValueLabel")
@@ -151,22 +150,10 @@ layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_ws1ea")
 
-[node name="ButtonContainer" type="HBoxContainer" parent="ContentMargin/ContentContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="RetryButton" type="Button" parent="ContentMargin/ContentContainer/ButtonContainer"]
+[node name="RetryButton" type="Button" parent="ContentMargin/ContentContainer"]
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 1
 theme = ExtResource("2_flp80")
 text = "Retry"
-
-[node name="LogoutButton" type="Button" parent="ContentMargin/ContentContainer/ButtonContainer"]
-custom_minimum_size = Vector2(75, 0)
-layout_mode = 2
-mouse_filter = 1
-theme = ExtResource("2_flp80")
-text = "Logout"

@@ -64,3 +64,4 @@ func _on_background_gui_input(event: InputEvent) -> void:
 		
 	if event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_RIGHT:
 		active_window.set_focus(false)
+		taskbar.on_app_window_minimized(active_window)

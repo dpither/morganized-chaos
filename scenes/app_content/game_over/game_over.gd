@@ -1,7 +1,6 @@
 extends Control
 
 @export var retry_button: Button
-@export var logout_button: Button
 @export var info_label: Label
 @export var tasks_complete_value_label: Label
 @export var duration_value_label: Label
@@ -10,13 +9,9 @@ extends Control
 func _ready() -> void:
   _set_data()
   retry_button.pressed.connect(_retry)
-  logout_button.pressed.connect(_logout)
 
 func _retry() -> void:
   GameState.retry()
-
-func _logout() -> void:
-  get_tree().quit(0)
 
 func _set_data() -> void:
   tasks_complete_value_label.text = "%d/%d" % [GameState.num_levels_complete, GameState.levels.size()]

@@ -25,6 +25,9 @@ func _process(_delta: float) -> void:
 		_update_cursor()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if GameState.is_game_over:
+		return
+
 	if not level_focused or is_complete:
 		return
 
@@ -60,7 +63,7 @@ func _on_scroll_value_changed(_value: float) -> void:
 func _handle_char(typed_char: String) -> void:
 	if current_task_index >= typing_tasks.size():
 		return
-
+	
 	num_typed += 1
 	var task: TypingTask = typing_tasks[current_task_index]
 

@@ -18,6 +18,7 @@ mono_crash.*.json
 
 # Export ignores
 web/
+*.zip
 
 #Editor ignores
 .vscode/*

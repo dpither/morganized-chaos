@@ -88,6 +88,7 @@ func retry() -> void:
 
 func _game_over() -> void:
 	is_game_over = true
+	AudioManager.play_sound(AudioManager.SOUND_TYPE.GAME_OVER)
 	game_over.emit()
 
 func _get_level_data(level_id: String) -> LevelData:

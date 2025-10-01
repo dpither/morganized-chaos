@@ -130,18 +130,6 @@ text = "Type the password"
 layout_mode = 0
 offset_bottom = 13.0
 
-[node name="GlitchOverlay" type="ColorRect" parent="ComputerScreen"]
-material = SubResource("ShaderMaterial_wlyqo")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(1, 1, 1, 0)
-script = ExtResource("11_5h4wf")
-
 [node name="CreditsButton" type="Button" parent="ComputerScreen"]
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 1
@@ -165,6 +153,18 @@ offset_top = -150.0
 offset_right = 200.0
 offset_bottom = 150.0
 open_button = NodePath("../CreditsButton")
+
+[node name="GlitchOverlay" type="ColorRect" parent="ComputerScreen"]
+material = SubResource("ShaderMaterial_wlyqo")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("11_5h4wf")
 
 [node name="PausedMenu" parent="ComputerScreen" instance=ExtResource("12_bfpwb")]
 visible = false
