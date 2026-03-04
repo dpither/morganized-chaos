@@ -25,6 +25,3 @@ It's the first day of the jam, it's time to get to work, log in and check the to
 Everything else by me, made with Godot & LibreSprite
 
 UI inspired by windows 95, with a [colour palette](https://lospec.com/palette-list/ammo-8) swap 
-
-## License
-Morganized Chaos is licensed under the [GNU General Public License v3.0 (GPLv3)](LICENSE).
